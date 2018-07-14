@@ -2,6 +2,12 @@
 // They will automatically be included in application.css.
 // You can use Sass (SCSS) here: http://sass-lang.com/
 
+@import 'sections';
+@import 'grouping';
+@import 'header';
+@import 'footer';
+@import 'navigation';
+
 
 html {
   font-family: sans-serif; /* 1 */
@@ -10,8 +16,6 @@ html {
   -webkit-text-size-adjust: 100%; /* 3 */
 }
 
-@import 'sections';
-@import 'grouping';
 
 /* Text-level semantics
    ========================================================================== */
@@ -912,64 +916,6 @@ table {
   border-bottom: 1px solid #e3e5e9;
 }
 
-/* ==========================================================================
-   NAVIGATION
-   ========================================================================== */
-
-/* Main navigation
-   ========================================================================== */
-/*ul*/.main-navigation {
-  list-style-type: none;
-  margin: 0;
-  padding: 0;
-}
-
-.main-navigation li {
-  display: inline-block;
-}
-
-.main-navigation a {
-  color: #192127;
-  display: inline-block;
-  padding: 1.3rem 0.75rem;
-}
-
-/* Subnavigation
-   ========================================================================== */
-
-/*ul*/.sub-navigation {
-  list-style-type: none;
-  padding: 0;
-  margin: 0 0 3.2rem;
-  border-bottom: 1px solid #e3e5e9;
-}
-
-.sub-navigation li {
-  display: inline-block;
-}
-
-.sub-navigation a {
-  display: inline-block;
-  padding: 1.6rem 0.8rem;
-  border-bottom: 2px solid #fff;
-}
-
-.sub-navigation a:hover,
-.sub-navigation a:focus,
-.sub-navigation a.current {
-  border-bottom-color: #192127;
-  color: #192127;
-  text-decoration: none;
-}
-
-/* Ordered navigation
-   ========================================================================== */
-
-/*ol*/.ordered-navigation {
-  color: #2c9cf2;
-  list-style-position: inside;
-  padding: 0;
-}
 
 /* Filter tags
    ========================================================================== */
