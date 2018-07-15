@@ -15,7 +15,8 @@
       <div class="site-header">
         <div class="content-wrapper">
           <div class="logo">
-            <a href="/"><span><i>My</i> Bucket List</span></a>
+            <%# <a href="/"><span><i>My</i> Bucket List</span></a> %>
+            <%=  link_to('<span><i>My</i> Bucket List</span>'.html_safe, '/')    %> 
           </div>
           <form class="global-search" method="get" action="" role="search">
             <div class="input-inline">
@@ -42,7 +43,8 @@
     <footer class="site-footer">
       <div class="content-wrapper">
         <div class="logo logo--inverted footer__logo">
-          <a href="/"><span><i>My</i> Bucket List</span></a>
+          <%# <a href="/"><span><i>My</i> Bucket List</span></a> %>
+          <%=  link_to('<span><i>My</i> Bucket List</span>'.html_safe, '/')    %> 
         </div>
         <nav class="footer__navigation">
           <ul>
