@@ -148,7 +148,7 @@
             <input id="password" class="input-group__field" type="password" name="password">
           </div>
           <p><a href="forgot-password.html">Forgot password?</a></p>
-        <%= render(partial: '/styles/prompt', locals: {label: 'Log In'})      %>
+          <div class="prompt"><button class="btn btn--primary prompt__confirm" type="submit">Log in</button></div>
         </form>
       </main>
     </section>
@@ -171,7 +171,7 @@
             <label class="input-group__label" for="email">Email address</label>
             <input id="email" class="input-group__field" type="email" name="email" placeholder="e.g. diana.prince@wonder.com">
           </div>
-        <%= render(partial: '/styles/prompt', locals: {label: 'Reset Password'})      %>
+<div class="prompt"><button class="btn btn--primary prompt__confirm" type="submit">Reset Password</button></div>
         </form>
       </main>
     </section>
@@ -208,7 +208,7 @@
             <input id="tos" type="checkbox" />
             <label for="tos">By signing up I agree to My Bucket List's <a href="tos.html">Terms of Service</a>.</label>
           </div>
-        <%= render(partial: '/styles/prompt', locals: {label: 'Sign Up'})      %>
+<div class="prompt"><button class="btn btn--primary prompt__confirm" type="submit">Sign up</button></div>
         </form>
       </main>
     </section>
