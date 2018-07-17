@@ -3,7 +3,6 @@
   <head>
     <title>BucketList</title>
     <%= csrf_meta_tags %>
-
     <%= stylesheet_link_tag    'application', media: 'all', 'data-turbolinks-track': 'reload' %>
     <%= javascript_include_tag 'application', 'data-turbolinks-track': 'reload' %>
   </head>
@@ -13,17 +12,20 @@
       <div class="site-header">
         <div class="content-wrapper">
           <div class="logo">
-            <%=  link_to('<span><i>My</i> Bucket List</span>'.html_safe, uri: root_path )    %> 
+            <%=  link_to('<span><i>My</i> Bucket List</span>'.html_safe, root_path)    %> 
           </div>
-          <form class="global-search" method="get" action="" role="search">
+
+          <%=  form_tag(ideas_index_path , class: 'global-search', method: 'GET') do %>
             <div class="input-inline">
               <label class="input-group__label sr-only" for="global-search-input">Looking for inspiration?</label>
               <div class="input-row">
                 <input id="global-search-input" class="input-row__field" type="text" name="search" placeholder="e.g. Swimming with dolphins">
+ <%= text_field_tag('global-search-input', nil, class: 'input-row__field', placeholder: "e.g. Swimming with dolphins") %>
                 <button class="btn btn--inline btn--primary" type="submit">Search</button>
               </div>
             </div>
-          </form>
+          <% end %>
+
           <nav class="site-header__nav">
             <ul class="main-navigation">
               <li><a href="#nolink">Inspiration</a></li>
@@ -39,7 +41,7 @@
     <footer class="site-footer">
       <div class="content-wrapper">
         <div class="logo logo--inverted footer__logo">
-          <%=  link_to('<span><i>My</i> Bucket List</span>'.html_safe, '/')    %> 
+          <%=  link_to('<span><i>My</i> Bucket List</span>'.html_safe, root_path)    %> 
         </div>
         <nav class="footer__navigation">
           <ul>
@@ -51,6 +53,6 @@
         <p class="copyright">&copy; EPFL 2017</p>
       </div>
     </footer>
-     
+
   </body>
 </html>
