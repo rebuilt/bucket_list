@@ -1,1 +1,5 @@
+<% if(current == true)  %>
+<%=  link_to(title,href, class: 'current')           %>
+<% else %>
 <%=  link_to(title,href)           %>
+<% end %>
