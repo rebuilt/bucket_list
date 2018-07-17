@@ -3,6 +3,9 @@
     <h1>Results for "everything"</h1>
   </div>
   <div class="content-wrapper">
+    <div>
+      <p> Search completed using "<%= @search_term %>". </p>
+    </div>
     <ul class="bare-list float-grid css-grid">
       <% activities = ["Hiking", "Swimming", "Shopping"] %>
       <% activities.each do |activity| %>
