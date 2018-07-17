@@ -2,13 +2,9 @@
       <div>
         <nav>
           <ul class="sub-navigation">
-            <%# <li><a href="styleguide.html">Atoms</a></li> %>
-            <%# <li><a href="molecules.html" class="current">Molecules</a></li> %>
-            <%# <li><a href="organisms.html">Organisms</a></li> %>
-            <%= link_to('Atoms', '/styles/atoms')    %>
-            <%= link_to('Molecules', '/styles/molecules')    %>
-            <%= link_to('Organisms', '/styles/organisms')    %>
-
+        <%= render(partial: 'nav', locals: {title: 'Atoms', href: '/styles/atoms'})              %>
+        <%= render(partial: 'nav', locals: {title: 'Molecules', href: '/styles/molecules'})              %>
+        <%= render(partial: 'nav', locals: {title: 'Organisms', href: '/styles/organisms'})              %>
             <li><a href="templates.html">Templates</a></li>
             <li><a href="#pages">Pages</a></li>
           </ul>
@@ -36,13 +32,13 @@
       </div>
       <section class="sg-section" id="card">
         <h2>01. Card</h2>
-        <%= render(partial: 'idea_card')  %>
+        <%= render(partial: 'idea_card', locals: {title: "Card Title"})  %>
       </section>
       <section class="sg-section" id="logo">
-        <%= render(partial: 'idea_card')  %>
+        <%= render(partial: 'idea_card', locals: {title: "Card Title"})  %>
       </section>
       <section class="sg-section" id="search">
-        <%= render(partial: 'idea_card')  %>
+        <%= render(partial: 'idea_card', locals: {title: "Card Title"})  %>
       </section>
       <section class="sg-section" id="navigation">
         <h2>04. Navigation</h2>
