@@ -2,16 +2,16 @@
   <div class="content-wrapper">
     <div class="page-header">
       <h1>My Idea</h1>
-      <a class="btn " href="#">Create Idea</a>
+      <%= link_to('Create Idea', '/idea/new', class: 'btn ') %>
     </div>
   </div>
   <div class="content-wrapper">
     <ul class="bare-list float-grid css-grid">
       <% @ideas.each do |idea| %>
-        <li>
-          <%= render(partial: 'idea_card', locals: {title: idea.title})  %>
-        </li>
-      <% end %>
+      <li>
+        <%= render(partial: 'idea_card', locals: {title: idea.title, editable: true})  %>
+      </li>
+    <% end %>
     </ul>
   </div>
   <div class="see-more">
