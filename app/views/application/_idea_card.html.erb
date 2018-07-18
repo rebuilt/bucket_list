@@ -9,6 +9,10 @@
               <span>1,598 have done this</span>
             </div>
           </div>
+          <% unless defined? editable   %>
+            <% editable = false  %>
+          <% end  %>
+
           <% if editable == false %>
             <%=  render(partial: 'card_footer') %>
           <% else  %>
