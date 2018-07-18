@@ -7,10 +7,10 @@
       <p> Search completed using "<%= @search_term %>". </p>
     </div>
     <ul class="bare-list float-grid css-grid">
-      <% activities = ["Hiking", "Swimming", "Shopping"] %>
+      <% activities =  @ideas %>
       <% activities.each do |activity| %>
         <li>
-      <%= render(partial: 'idea_card', locals: {title: activity})          %>
+      <%= render(partial: 'idea_card', locals: {title: activity.title})          %>
     </li> 
   <% end  %>
     </ul>
