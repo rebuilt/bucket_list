@@ -5,11 +5,11 @@
     <%= form_tag('/ideas/create', method: :post, class: 'form--inpage', locals: {title: "Title"} ) do  %>
     <div class="input-group input-group--horisontal">
       <label class="input-group__label" for="title">Title</label>
-      <input id="title" class="input-group__field" type="text" name="title" placeholder="E.g. Ride a camel">
+      <%= text_field_tag('title' , nil, placeholder: 'E.g. Ride a camel', class: 'input-group__field')  %>
     </div>
     <div class="prompt">
       <a class="prompt__cancel" href="#cancel">Cancel</a>
-      <button class="btn btn--primary prompt__confirm" type="submit">Update profile</button>
+      <%= button_tag('Update Profile', class: 'btn btn--primary prompt__confirm')  %>
     </div>
   <%  end  %>
 </div>
