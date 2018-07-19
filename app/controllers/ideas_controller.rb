@@ -4,9 +4,10 @@ class IdeasController < ApplicationController
     logger.info("The search term is: #{@search_term}")
     @ideas = Idea.all
   end
+
   def new
-    
   end
+
   def create
     idea = Idea.new
     idea.title = params[:title]
@@ -14,5 +15,11 @@ class IdeasController < ApplicationController
     idea.photo_url = params[:photo_url]
     idea.save!
     redirect_to ideas_index_path
+  end
+
+  def edit
+  end
+ 
+  def update
   end
 end
