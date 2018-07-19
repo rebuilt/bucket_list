@@ -1,21 +1,24 @@
 <div class="card">
-          <div class="card__thumb">
-            <a href="ideas/one-example-idea.html">
-              <img src="http://fpoimg.com/255x170"
-                   alt="Northern lights over mountain covered in snow">
-            </a>
-            <div class="card__intro">
-              <h4 class="card__title"><%= title    %></h4>
-              <span><%= done_count %> have done this.</span>
-            </div>
-          </div>
-          <% unless defined? editable   %>
-            <% editable = false  %>
-          <% end  %>
+  <div class="card__thumb">
+    <a href="ideas/one-example-idea.html">
+      <% if(photo_url.nil?)      %>
+        <img src="http://fpoimg.com/255x170" alt="Northern lights over mountain covered in snow">
+        <% else      %>
+      <%= image_tag(photo_url) %>
+    <% end     %>
+    </a>
+    <div class="card__intro">
+      <h4 class="card__title"><%= title    %></h4>
+      <span><%= done_count %> have done this.</span>
+    </div>
+  </div>
+  <% unless defined? editable   %>
+    <% editable = false  %>
+  <% end  %>
 
-          <% if editable == false %>
-            <%=  render(partial: 'card_footer') %>
-          <% else  %>
-            <%= render(partial: 'card_footer_editable')%>
-          <% end  %>
-        </div>
+  <% if editable == false %>
+    <%=  render(partial: 'card_footer') %>
+  <% else  %>
+    <%= render(partial: 'card_footer_editable')%>
+  <% end  %>
+</div>

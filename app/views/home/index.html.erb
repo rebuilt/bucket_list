@@ -20,7 +20,7 @@
         <% ideas = ['Hiking', 'Karaoke', 'Water Park', 'Rafting', 'Knitting circle', 'Drum circle', 'Arm Wrestling', 'Tae Chi', 'Swimming'] %>
           <%   ideas.each do |idea|      %> 
         <li>
-          <%= render(partial: 'idea_card', locals: {title: idea , done_count: 23, editable:false}) %>
+          <%= render(partial: 'idea_card', locals: {title: idea , done_count: 23, photo_url: "https://www.vaporfi.com.au/media/catalog/product/cache/34/thumbnail/600x600/9df78eab33525d08d6e5fb8d27136e95/v/z/vz_eliquid_juicy_red_apple.jpg", editable:false}) %>
         </li>
         <% end    %> 
           

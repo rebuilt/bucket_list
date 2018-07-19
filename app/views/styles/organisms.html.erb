@@ -58,7 +58,7 @@
         <% ideas = ['Hiking', 'Karaoke', 'Water Park', 'Rafting', 'Knitting circle', 'Drum circle', 'Arm Wrestling', 'Tae Chi', 'Swimming'] %>
         <% ideas.each do |idea|      %> 
           <li>
-            <%= render(partial: '/application/idea_card', locals: {title: idea, done_count: 25, editable: false})   %> 
+            <%= render(partial: '/application/idea_card', locals: {title: idea, done_count: 25, photo_url: nil,  editable: false})   %> 
         </li>
         <%   end      %> 
       </ul>
