@@ -7,8 +7,11 @@
       <p> Search completed using "<%= @search_term %>". </p>
     </div>
     <ul class="bare-list float-grid css-grid">
-
-      <%= render(partial: 'idea_card_list') %>
+      <% @ideas.each do |idea| %>
+        <li>
+          <%= render(partial: 'idea_card', locals: { idea: idea, editable: true})  %>
+        </li>
+      <% end %>
     </ul>
   </div>
   <div class="see-more">

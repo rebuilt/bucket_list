@@ -7,7 +7,11 @@
   </div>
   <div class="content-wrapper">
     <ul class="bare-list float-grid css-grid">
-      <%= render(partial: 'idea_card_list') %>
+<% @ideas.each do |idea| %>
+  <li>
+    <%= render(partial: 'idea_card_editable', locals: { idea: idea})  %>
+  </li>
+<% end %>
     </ul>
   </div>
   <div class="see-more">

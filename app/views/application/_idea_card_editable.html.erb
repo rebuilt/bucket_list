@@ -13,17 +13,17 @@
     </div>
   </div>
 <div class="card__footer">
-  <button class="card__btn card__like delta" data-like="see-the-northern-lights">
-    <svg class="icon-heart icon-heart--liked" role="presentation">
-      <use href="/images/icons/icons-defs.svg#heart"></use>
+  <button class="btn delta" type="submit">
+    <svg class="icon-delete" role="presentation">
+      <use xlink:href="../icons/icons-defs.svg#delete"></use>
     </svg>
-    Like
+    Delete
   </button>
-  <button class="card__btn card__add delta" data-addGoal="see-the-northern-lights">
-    <svg class="icon-pluss" role="presentation">
-      <use href="/images/icons/icons-defs.svg#pluss"></use>
+  <a class="btn delta" href="<%= edit_idea_path(idea) %>">
+    <svg class="icon-edit" role="presentation">
+      <use xlink:href="../icons/icons-defs.svg#edit"></use>
     </svg>
-    Add Goal
-  </button>
+    Edit
+  </a>
 </div>
 </div>

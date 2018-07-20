@@ -13,4 +13,10 @@ class SimpleNavigationsTest < ApplicationSystemTestCase
     assert has_content?('Spain')
     assert current_url.include?('q=Spain')
   end
+
+  test 'style guide navigation' do
+    visit('/')
+    click_on('Styleguide')
+    assert current_url.include?('/')
+  end
 end
