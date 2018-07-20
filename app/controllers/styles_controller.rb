@@ -3,7 +3,6 @@ class StylesController < ApplicationController
   end
 
   def molecules
-    @ideas = Idea.all
   end
 
   def organisms

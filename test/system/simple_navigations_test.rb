@@ -17,14 +17,18 @@ class SimpleNavigationsTest < ApplicationSystemTestCase
   test 'style guide navigation' do
      visit('/')
      click_on('Style Guide')
-     # sleep(1.second)
+     # sleep(1.seconds)
      assert current_url.include?('/styles/atoms')
-     # sleep(1.second)
+      # sleep(1.seconds)
      assert has_content?('Atoms')
      assert has_content?('Molecules')
+     # sleep(5.seconds)
      click_on('Molecules', match: :first)
      assert current_url.include?('/styles/molecules')
      assert has_content?('Card')
+      click_on('My Bucket List', match: :first)
+
+
 
   end
 end
