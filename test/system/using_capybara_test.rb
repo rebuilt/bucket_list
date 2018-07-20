@@ -17,4 +17,9 @@ class CapybaraTest < ApplicationSystemTestCase
     click_on('Italian Riviera', match: :first)
     sleep(20.seconds)
   end
+
+  test 'we can use capybara' do
+
+  end
+
 end
