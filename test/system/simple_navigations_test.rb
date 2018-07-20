@@ -23,5 +23,8 @@ class SimpleNavigationsTest < ApplicationSystemTestCase
      assert has_content?('Atoms')
      assert has_content?('Molecules')
      click_on('Molecules', match: :first)
+     assert current_url.include?('/styles/molecules')
+     assert has_content?('Card')
+
   end
 end
