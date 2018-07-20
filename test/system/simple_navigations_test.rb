@@ -17,10 +17,11 @@ class SimpleNavigationsTest < ApplicationSystemTestCase
   test 'style guide navigation' do
      visit('/')
      click_on('Style Guide')
-     sleep(1.second)
+     # sleep(1.second)
      assert current_url.include?('/styles/atoms')
-     sleep(8.second)
+     # sleep(1.second)
      assert has_content?('Atoms')
      assert has_content?('Molecules')
+     click_on('Molecules', match: :first)
   end
 end

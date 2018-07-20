@@ -55,10 +55,9 @@
     <h2>02. Ideas</h2>
     <div>
       <ul class="bare-list float-grid css-grid">
-        <% ideas = ['Hiking', 'Karaoke', 'Water Park', 'Rafting', 'Knitting circle', 'Drum circle', 'Arm Wrestling', 'Tae Chi', 'Swimming'] %>
-        <% ideas.each do |idea|      %> 
+        <% @ideas.each do |idea|      %> 
           <li>
-            <%= render(partial: '/application/idea_card', locals: {title: idea, done_count: 25, photo_url: nil,  editable: false})   %> 
+            <%= render(partial: 'idea_card', locals: {idea: idea})   %> 
         </li>
         <%   end      %> 
       </ul>
