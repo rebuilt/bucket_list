@@ -27,7 +27,10 @@ class SimpleNavigationsTest < ApplicationSystemTestCase
      assert current_url.include?('/styles/molecules')
      assert has_content?('Card')
       click_on('My Bucket List', match: :first)
-
+      assert current_path ==  root_path
+      # sleep(10.seconds)
+    #expect(page).to have_current_path(root_path)
+    assert has_content?('Some ideas')
 
 
   end
