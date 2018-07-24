@@ -1,0 +1,192 @@
+[1;31mpublic/account-ideas.html[0m[K
+[1;30m  1 [0m[K-<main>
+[1;30m  2 [0m[K-  <div class="content-wrapper">
+[1;30m  3 [0m[K-    <div class="page-header">
+[1;30m  4 [0m[K:14:      <h1>My [32;40mIdea[0m[K</h1>
+[1;30m  5 [0m[K:39:      <a class="btn " href="#">Create [32;40mIdea[0m[K</a>
+[1;30m  6 [0m[K-    </div>
+[1;30m  7 [0m[K-  </div>
+[1;30m  8 [0m[K-  <div class="content-wrapper">
+
+[1;31mdb/migrate/20180718213525_add_done_count_to_idea.rb[0m[K
+[1;30m  1 [0m[K:21:class AddDoneCountTo[32;40mIdea[0m[K < ActiveRecord::Migration[5.1]
+[1;30m  2 [0m[K-  def change
+[1;30m  3 [0m[K-    add_column :ideas, :done_count, :integer
+[1;30m  4 [0m[K-  end
+
+[1;31mdb/migrate/20180718065130_create_ideas.rb[0m[K
+[1;30m  1 [0m[K:13:class Create[32;40mIdea[0m[Ks < ActiveRecord::Migration[5.1]
+[1;30m  2 [0m[K-  def change
+[1;30m  3 [0m[K-    create_table :ideas do |t|
+[1;30m  4 [0m[K-      t.string :title
+
+[1;31mdb/migrate/20180718233845_add_photo_url_to_idea.rb[0m[K
+[1;30m  1 [0m[K:20:class AddPhotoUrlTo[32;40mIdea[0m[K < ActiveRecord::Migration[5.1]
+[1;30m  2 [0m[K-  def change
+[1;30m  3 [0m[K-    add_column :ideas, :photo_url, :string
+[1;30m  4 [0m[K-  end
+
+[1;31mapp/helpers/ideas_helper.rb[0m[K
+[1;30m  1 [0m[K:8:module [32;40mIdea[0m[KsHelper
+[1;30m  2 [0m[K-end
+[1;30m  3 [0m[K-
+
+[1;31mapp/views/account/ideas.html.erb[0m[K
+[1;30m  1 [0m[K-<main>
+[1;30m  2 [0m[K-  <div class="content-wrapper">
+[1;30m  3 [0m[K-    <div class="page-header">
+[1;30m  4 [0m[K:14:      <h1>My [32;40mIdea[0m[K</h1>
+[1;30m  5 [0m[K:27:      <%= link_to('Create [32;40mIdea[0m[K', '/ideas/new', class: 'btn ') %>
+[1;30m  6 [0m[K-    </div>
+[1;30m  7 [0m[K-  </div>
+[1;30m  8 [0m[K-  <div class="content-wrapper">
+
+[1;31mapp/views/styles/molecules.html.erb[0m[K
+[1;30m 32 [0m[K-  </div>
+[1;30m 33 [0m[K-  <section class="sg-section" id="card">
+[1;30m 34 [0m[K-    <h2>01. Card</h2>
+[1;30m 35 [0m[K:16:    <%  idea = [32;40mIdea[0m[K.new
+[1;30m 36 [0m[K-    idea.title = "hiking" 
+[1;30m 37 [0m[K-    idea.done_count =  4
+[1;30m 38 [0m[K-    idea.photo_url =  "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcSy20Q0IqE5Ga7acGEcA8vPLyD47a8FHZxXFtWBosq_dL393NaqlQ"   %>
+
+[1;31mapp/views/styles/organisms.html.erb[0m[K
+[1;30m 22 [0m[K-    <nav>
+[1;30m 23 [0m[K-      <ol class="ordered-navigation">
+[1;30m 24 [0m[K-        <li><a href="#filters">Filters</a></li>
+[1;30m 25 [0m[K:30:        <li><a href="#ideas">[32;40mIdea[0m[Ks</a></li>
+[1;30m 26 [0m[K-        <li><a href="#create-goal">Create goal</a></li>
+[1;30m 27 [0m[K-        <li><a href="#edit-profile">Edit profile</a></li>
+[1;30m 28 [0m[K-        <li><a href="#login">Log in</a></li>
+--
+[1;30m 52 [0m[K-    </div>
+[1;30m 53 [0m[K-  </section>
+[1;30m 54 [0m[K-  <section class="sg-section" id="ideas">
+[1;30m 55 [0m[K:13:    <h2>02. [32;40mIdea[0m[Ks</h2>
+[1;30m 56 [0m[K-    <div>
+[1;30m 57 [0m[K-      <ul class="bare-list float-grid css-grid">
+[1;30m 58 [0m[K-        <% @ideas.each do |idea|      %> 
+
+[1;31mapp/assets/stylesheets/ideas.scss[0m[K
+[1;30m  1 [0m[K:40:// Place all the styles related to the [32;40mIdea[0m[Ks controller here.
+[1;30m  2 [0m[K-// They will automatically be included in application.css.
+[1;30m  3 [0m[K-// You can use Sass (SCSS) here: http://sass-lang.com/
+[1;30m  4 [0m[K-
+
+[1;31mapp/controllers/styles_controller.rb[0m[K
+[1;30m  6 [0m[K-  end
+[1;30m  7 [0m[K-
+[1;30m  8 [0m[K-  def organisms
+[1;30m  9 [0m[K:14:    @ideas = [32;40mIdea[0m[K.all
+[1;30m 10 [0m[K-  end
+[1;30m 11 [0m[K-end
+[1;30m 12 [0m[K-
+
+[1;31mapp/controllers/account_controller.rb[0m[K
+[1;30m  1 [0m[K-class AccountController < ApplicationController
+[1;30m  2 [0m[K-  def ideas
+[1;30m  3 [0m[K:14:    @ideas = [32;40mIdea[0m[K.all
+[1;30m  4 [0m[K-  end
+[1;30m  5 [0m[K-end
+[1;30m  6 [0m[K-
+
+[1;31mapp/controllers/ideas_controller.rb[0m[K
+[1;30m  1 [0m[K:7:class [32;40mIdea[0m[KsController < ApplicationController
+[1;30m  2 [0m[K-  def index
+[1;30m  3 [0m[K-    @search_term = params[:q]
+[1;30m  4 [0m[K-    logger.info("The search term is: #{@search_term}")
+[1;30m  5 [0m[K:14:    @ideas = [32;40mIdea[0m[K.all
+[1;30m  6 [0m[K-  end
+[1;30m  7 [0m[K-
+[1;30m  8 [0m[K-  def new
+[1;30m  9 [0m[K-  end
+[1;30m 10 [0m[K-
+[1;30m 11 [0m[K-  def create
+[1;30m 12 [0m[K:12:    idea = [32;40mIdea[0m[K.new
+[1;30m 13 [0m[K-    idea.title = params[:title]
+[1;30m 14 [0m[K-    idea.done_count = params[:done_count]
+[1;30m 15 [0m[K-    idea.photo_url = params[:photo_url]
+--
+[1;30m 19 [0m[K-
+[1;30m 20 [0m[K-  def edit
+[1;30m 21 [0m[K-    id = params[:id]
+[1;30m 22 [0m[K:13:    @idea = [32;40mIdea[0m[K.find(id)
+[1;30m 23 [0m[K-  end
+[1;30m 24 [0m[K- 
+[1;30m 25 [0m[K-  def update
+[1;30m 26 [0m[K:12:    idea = [32;40mIdea[0m[K.find(params[:id])
+[1;30m 27 [0m[K-    idea.title = params[:title]
+[1;30m 28 [0m[K-    idea.done_count = params[:done_count]
+[1;30m 29 [0m[K-    idea.photo_url = params[:photo_url]
+
+[1;31mapp/controllers/home_controller.rb[0m[K
+[1;30m  1 [0m[K-class HomeController < ApplicationController
+[1;30m  2 [0m[K-  def index
+[1;30m  3 [0m[K:14:    @ideas = [32;40mIdea[0m[K.all
+[1;30m  4 [0m[K-  end
+[1;30m  5 [0m[K-end
+[1;30m  6 [0m[K-
+
+[1;31mapp/models/idea.rb[0m[K
+[1;30m  1 [0m[K:7:class [32;40mIdea[0m[K < ApplicationRecord
+[1;30m  2 [0m[K-end
+[1;30m  3 [0m[K-
+
+[1;31mtest/controllers/ideas_controller_test.rb[0m[K
+[1;30m  1 [0m[K-require 'test_helper'
+[1;30m  2 [0m[K-
+[1;30m  3 [0m[K:7:class [32;40mIdea[0m[KsControllerTest < ActionDispatch::IntegrationTest
+[1;30m  4 [0m[K-  # test "the truth" do
+[1;30m  5 [0m[K-  #   assert true
+[1;30m  6 [0m[K-  # end
+
+[1;31morganisms.html[0m[K
+[1;30m 60 [0m[K-         <nav>
+[1;30m 61 [0m[K-          <ol class="ordered-navigation">
+[1;30m 62 [0m[K-            <li><a href="#filters">Filters</a></li>
+[1;30m 63 [0m[K:34:            <li><a href="#ideas">[32;40mIdea[0m[Ks</a></li>
+[1;30m 64 [0m[K-            <li><a href="#create-goal">Create goal</a></li>
+[1;30m 65 [0m[K-            <li><a href="#edit-profile">Edit profile</a></li>
+[1;30m 66 [0m[K-            <li><a href="#login">Log in</a></li>
+--
+[1;30m 90 [0m[K-        </div>
+[1;30m 91 [0m[K-      </section>
+[1;30m 92 [0m[K-      <section class="sg-section" id="ideas">
+[1;30m 93 [0m[K:17:        <h2>02. [32;40mIdea[0m[Ks</h2>
+[1;30m 94 [0m[K-        <div>
+[1;30m 95 [0m[K-          <ul class="bare-list float-grid css-grid">
+[1;30m 96 [0m[K-            <li>
+
+[1;31mtest/models/idea_test.rb[0m[K
+[1;30m  1 [0m[K-require 'test_helper'
+[1;30m  2 [0m[K-
+[1;30m  3 [0m[K:7:class [32;40mIdea[0m[KTest < ActiveSupport::TestCase
+[1;30m  4 [0m[K-  # test "the truth" do
+[1;30m  5 [0m[K-  #   assert true
+[1;30m  6 [0m[K-  # end
+
+[1;31mtest/system/ideas_test.rb[0m[K
+[1;30m  1 [0m[K-require "application_system_test_case"
+[1;30m  2 [0m[K-
+[1;30m  3 [0m[K:7:class [32;40mIdea[0m[KsTest < ApplicationSystemTestCase
+[1;30m  4 [0m[K-  # test "visiting the index" do
+[1;30m  5 [0m[K-  #   visit ideas_url
+[1;30m  6 [0m[K-  #
+[1;30m  7 [0m[K:36:  #   assert_selector "h1", text: "[32;40mIdea[0m[Ks"
+[1;30m  8 [0m[K-  # end
+[1;30m  9 [0m[K-  test 'create new idea' do
+[1;30m 10 [0m[K-
+--
+[1;30m 21 [0m[K-  end
+[1;30m 22 [0m[K-
+[1;30m 23 [0m[K-  test 'create two ideas records' do
+[1;30m 24 [0m[K:13:    idea1 = [32;40mIdea[0m[K.new
+[1;30m 25 [0m[K-    idea1.title = "Cycle across Australia"
+[1;30m 26 [0m[K-    idea1.done_count = 2
+[1;30m 27 [0m[K-    idea1.photo_url = "https://cdn.shopify.com/s/files/1/0871/3066/products/FJ-1019-CappuccinoCup190ml-Feijoa-Cropped_1024x1024.jpg?v=1524591768"
+[1;30m 28 [0m[K-    idea1.save!
+[1;30m 29 [0m[K-
+[1;30m 30 [0m[K:13:    idea2 = [32;40mIdea[0m[K.new
+[1;30m 31 [0m[K-    idea2.title = "Road rage championship"
+[1;30m 32 [0m[K-    idea2.done_count = 2
+[1;30m 33 [0m[K-    idea2.photo_url = "https://i.ytimg.com/vi/qvE2miLMbNk/maxresdefault.jpg"

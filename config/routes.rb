@@ -20,6 +20,8 @@ Rails.application.routes.draw do
 
   post 'ideas/create'
 
+  get 'ideas/:id', to: 'ideas#show' , as: 'show_idea'
+
   get 'account/ideas'
  
 
