@@ -1,0 +1,5 @@
+<% if(idea.photo_url.nil?)      %>
+  <img src="http://fpoimg.com/255x170" alt="Northern lights over mountain covered in snow">
+  <% else      %>
+<%= image_tag(idea.photo_url) %>
+    <% end     %>
