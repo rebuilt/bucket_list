@@ -15,6 +15,7 @@ class ShowIdeasTest < ApplicationSystemTestCase
     assert page.has_content?("Created on #{idea.created_at.strftime("%d %b '%y'")}")
     # sleep(10.seconds)
     click_on 'Edit'
+    assert current_path == edit_idea_path(idea)
 
 
   end
