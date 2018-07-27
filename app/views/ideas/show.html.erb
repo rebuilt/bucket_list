@@ -7,18 +7,17 @@
       <div class="media__body">
         <div class="goal">
           <div class="goal__owner">
-            <img class="avatar" src="#images/avatar.png" alt="Portrait of Frederick Rose">
+            <%# <img class="avatar" src="#images/avatar.png" alt="Portrait of Frederick Rose"> %>
+              <%=  image_tag("avatar.png", width: 42) %>
             <p>Created by <a href="#">Frederick Rose</a></p>
           </div>
           <h1 class="gamma"> <%= @idea.title %></h1>
           <ul class="horizontal-list btn-group">
             <li>
-              <a class="btn delta" href="#no-link">
-                <svg class="icon-check icon--sm" role="presentation">
-                  <!-- <use xlink:href="images/icons-defs.svg#check"></use> -->
-                </svg>
+                <%= link_to(edit_idea_path(@idea.id), class: "btn gamma") do %>
+                <svg class="icon-check icon--sm" role="presentation"> </svg>
                 Edit
-              </a>
+              <% end       %>
             </li>
             <li>
               <button class="btn delta" type="button">
