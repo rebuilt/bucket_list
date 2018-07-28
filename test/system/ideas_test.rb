@@ -50,6 +50,7 @@ class IdeasTest < ApplicationSystemTestCase
 
     visit edit_idea_path(idea)
     fill_in 'done_count', with: 10
+    fill_in 'title', with: 'Travel to Zermatt'
 
 
   end
