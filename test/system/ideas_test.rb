@@ -36,8 +36,19 @@ class IdeasTest < ApplicationSystemTestCase
     visit ideas_index_path 
     assert page.has_content?("Cycle across Australia")
     assert page.has_content?("Road rage championship")
-    assert_equal 4, page.all('.card').count
+    assert_equal 2, page.all('.card').count
     #sleep(10.seconds)
 
   end
+
+  test 'create idea and visit page to edit that idea' do
+    idea = Idea.new
+    idea.title = 'See the alps'
+    idea.done_count = 3
+    idea.photo_url = "https://i.ytimg.com/vi/qvE2miLMbNk/maxresdefault.jpg"
+    idea.save!
+
+
+  end
+  
 end
