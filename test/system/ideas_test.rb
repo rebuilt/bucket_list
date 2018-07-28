@@ -48,6 +48,9 @@ class IdeasTest < ApplicationSystemTestCase
     idea.photo_url = "https://i.ytimg.com/vi/qvE2miLMbNk/maxresdefault.jpg"
     idea.save!
 
+    visit edit_idea_path(idea)
+    fill_in 'done_count', with: 10
+
 
   end
   
