@@ -51,8 +51,11 @@ class IdeasTest < ApplicationSystemTestCase
     visit edit_idea_path(idea)
     fill_in 'done_count', with: 10
     fill_in 'title', with: 'Travel to Zermatt'
+    click_on 'Update'
 
-
+    sleep(4.seconds)
+    assert page.has_content?('Travel to Zermatt')
+    assert page.has_content?('10 have done this.')
   end
   
 end
