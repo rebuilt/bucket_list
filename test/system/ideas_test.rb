@@ -59,3 +59,4 @@ class IdeasTest < ApplicationSystemTestCase
   end
   
 end
+

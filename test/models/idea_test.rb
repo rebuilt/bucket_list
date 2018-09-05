@@ -42,4 +42,15 @@ class IdeaTest < ActiveSupport::TestCase
     assert_equal(first_idea, Idea.all.first)
   end
 
+  test 'edit idea' do
+    idea = Idea.new
+    idea.save!
+    visit(edit_idea_path(idea))
+    fill_in('title', with: 'Learn Ruby on Rails')
+    click_on('Update')
+    click_on('Learn Ruby on Rails')
+    assert page.has_content?('Learn Ruby on Rails')
+
+  end
+
 end

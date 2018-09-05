@@ -32,17 +32,14 @@
   </div>
   <section class="sg-section" id="card">
     <h2>01. Card</h2>
-    <%  idea = Idea.new
-    idea.title = "hiking" 
-    idea.done_count =  4
-    idea.photo_url =  "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcSy20Q0IqE5Ga7acGEcA8vPLyD47a8FHZxXFtWBosq_dL393NaqlQ"   %>
-  <%= render(partial: 'idea_card', locals: { idea: idea  })  %>
+
+  <%= render(partial: 'idea_card', locals: {photo_url: "https://cdn.shopify.com/s/files/1/1184/9874/products/pen_mockup1_2_1024x1024.jpg?v=1478971376", title: "Write stuff", done_count: 22, idea: 1})  %>
 </section>
 <section class="sg-section" id="logo">
-  <%= render(partial: 'idea_card', locals: { idea: idea })  %>
+  <%= render(partial: 'idea_card', locals: {photo_url: "https://cdn.shopify.com/s/files/1/1184/9874/products/pen_mockup1_2_1024x1024.jpg?v=1478971376", title: "Write stuff", done_count: 22, idea: 1})  %>
 </section>
 <section class="sg-section" id="search">
-  <%= render(partial: 'idea_card', locals: { idea: idea })  %>
+  <%= render(partial: 'idea_card', locals: {photo_url: "https://cdn.shopify.com/s/files/1/1184/9874/products/pen_mockup1_2_1024x1024.jpg?v=1478971376", title: "Write stuff", done_count: 22, idea: 1})  %>
 </section>
 <section class="sg-section" id="navigation">
   <h2>04. Navigation</h2>
