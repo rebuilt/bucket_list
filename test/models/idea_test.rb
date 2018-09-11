@@ -98,7 +98,14 @@ class IdeaTest < ActiveSupport::TestCase
     assert results.length == 0
   end
 
-  
-
-
+  test 'two matching results' do
+    idea = Idea.new
+    idea.title = "Stand at the top of the Empire State Building"
+    idea.save!
+    idea2 = Idea.new
+    idea2.title = "Stand on the pyramids"
+    idea2.save!
+    results = Idea.search("Stand")
+    assert results.length ==  2
+  end
 end
