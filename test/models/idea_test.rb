@@ -78,4 +78,27 @@ class IdeaTest < ActiveSupport::TestCase
     idea.save!
     refute_equal(idea.updated_at, first_updated_at)
   end
+
+  test 'one matching search result' do
+    idea = Idea.new
+    idea.title = "Stand at the top of the Empire State Building"
+    idea.save!
+    results = Idea.search("the top")
+    assert results.length ==  1
+
+
+  end
+
+  test 'no matching search result' do
+    idea = Idea.new
+    idea.title = "Stand at the top of the Empire State Building"
+    idea.save!
+    results = Idea.search("snorkelling")
+    assert_empty results
+    assert results.length == 0
+  end
+
+  
+
+
 end
