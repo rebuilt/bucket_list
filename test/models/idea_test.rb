@@ -113,7 +113,7 @@ class IdeaTest < ActiveSupport::TestCase
     ideas = Idea.most_recent
     assert ideas.empty?
   end
-  
+
   test 'two idea records exist' do
     idea = Idea.new 
     idea.title = "First idea"
@@ -122,10 +122,36 @@ class IdeaTest < ActiveSupport::TestCase
     idea2 = Idea.new 
     idea2.title = "First idea"
     idea2.save!
-    
+
     recent_ideas = Idea.most_recent
     assert recent_ideas.length == 2
 
   end
 
+  test 'three idea records returned' do
+
+    idea = Idea.new 
+    idea.title = "First idea"
+    idea.save!
+
+    idea2 = Idea.new 
+    idea2.title = "Second idea"
+    idea2.save!
+    idea3 = Idea.new 
+    idea3.title = "Third idea"
+    idea3.save!
+    idea4 = Idea.new 
+    idea4.title = "Fourth idea"
+    idea4.save!
+    idea5 = Idea.new 
+    idea5.title = "Fifth idea"
+    idea5.save!
+    idea6 = Idea.new 
+    idea6.title = "Sixth idea"
+    idea6.save!
+
+    recent_ideas = Idea.most_recent
+    assert recent_ideas.length == 3
+
+  end
 end
