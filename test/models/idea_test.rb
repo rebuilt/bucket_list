@@ -113,6 +113,19 @@ class IdeaTest < ActiveSupport::TestCase
     ideas = Idea.most_recent
     assert ideas.empty?
   end
+  
+  test 'two idea records exist' do
+    idea = Idea.new 
+    idea.title = "First idea"
+    idea.save!
 
+    idea2 = Idea.new 
+    idea2.title = "First idea"
+    idea2.save!
+    
+    recent_ideas = Idea.most_recent
+    assert recent_ideas.length == 2
+
+  end
 
 end
