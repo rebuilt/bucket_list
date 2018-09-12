@@ -3,6 +3,7 @@
     <h1>Results for "everything"</h1>
   </div>
   <div class="content-wrapper">
+  <% if(@ideas.any? ) %>
     <div>
       <p> Search completed using "<%= @search_term %>". </p>
     </div>
@@ -16,5 +17,8 @@
   </div>
   <div class="see-more">
     <button class="btn" type="button" data-more="true">See more</button>
+<% else %>
+  <h3>No ideas found!</h3>
+<% end %>
   </div>
 </main>

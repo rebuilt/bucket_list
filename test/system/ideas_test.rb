@@ -68,8 +68,10 @@ class IdeasTest < ApplicationSystemTestCase
     click_on('Learn Ruby on Rails')
     assert page.has_content?('Learn Ruby on Rails')
     assert page.has_content?('73 have done this')
-    
-
   end
-end
 
+  test 'no search results' do
+  visit(ideas_index_path)
+  assert page.has_content?("No ideas found!")
+end
+end
