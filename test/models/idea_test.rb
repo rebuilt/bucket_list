@@ -108,4 +108,11 @@ class IdeaTest < ActiveSupport::TestCase
     results = Idea.search("Stand")
     assert results.length ==  2
   end
+
+  test 'no idea record exists' do
+    ideas = Idea.most_recent
+    assert ideas.empty?
+  end
+
+
 end
