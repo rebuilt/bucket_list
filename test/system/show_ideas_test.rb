@@ -12,7 +12,7 @@ class ShowIdeasTest < ApplicationSystemTestCase
     visit(show_idea_path(idea))
     assert page.has_content?('See the northern lights')
     assert page.has_content?("#{idea.done_count} have done this")
-    assert page.has_content?("Created on #{idea.created_at.strftime("%d %b '%y'")}")
+    assert page.has_content?("Created on #{idea.created_at.strftime("%d %b '%y")}")
     # sleep(10.seconds)
     click_on 'Edit'
     assert current_path == edit_idea_path(idea)
