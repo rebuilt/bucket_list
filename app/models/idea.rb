@@ -1,4 +1,5 @@
 class Idea < ApplicationRecord
+  validates :title, presence: true
   def self.search(search_term)
     where('title LIKE  ?', "%#{search_term}%")
   end
