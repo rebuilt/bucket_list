@@ -9,11 +9,11 @@ class IdeasTest < ApplicationSystemTestCase
   test 'create new idea' do
 
     visit new_idea_path
-    fill_in 'title', with: 'See the matterhorn'
-    fill_in 'done_count', with: "3"
-    fill_in 'photo_url', with: "https://cdn.shopify.com/s/files/1/0871/3066/products/FJ-1019-CappuccinoCup190ml-Feijoa-Cropped_1024x1024.jpg?v=1524591768"
+    fill_in 'Title', with: 'See the matterhorn'
+    fill_in 'Done count', with: "3"
+    fill_in 'Photo url', with: "https://cdn.shopify.com/s/files/1/0871/3066/products/FJ-1019-CappuccinoCup190ml-Feijoa-Cropped_1024x1024.jpg?v=1524591768"
     # sleep(10.seconds)
-    click_on 'Update Profile'
+    click_on 'Create Idea'
     visit ideas_path
     assert page.has_content?('See the matterhorn')
     # sleep(10.seconds)
