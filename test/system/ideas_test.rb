@@ -8,13 +8,13 @@ class IdeasTest < ApplicationSystemTestCase
   # end
   test 'create new idea' do
 
-    visit ideas_new_path
+    visit new_idea_path
     fill_in 'title', with: 'See the matterhorn'
     fill_in 'done_count', with: "3"
     fill_in 'photo_url', with: "https://cdn.shopify.com/s/files/1/0871/3066/products/FJ-1019-CappuccinoCup190ml-Feijoa-Cropped_1024x1024.jpg?v=1524591768"
     # sleep(10.seconds)
     click_on 'Update Profile'
-    visit ideas_index_path
+    visit ideas_path
     assert page.has_content?('See the matterhorn')
     # sleep(10.seconds)
 
@@ -33,7 +33,7 @@ class IdeasTest < ApplicationSystemTestCase
     idea2.photo_url = "https://i.ytimg.com/vi/qvE2miLMbNk/maxresdefault.jpg"
     idea2.save!
     
-    visit ideas_index_path 
+    visit ideas_path 
     assert page.has_content?("Cycle across Australia")
     assert page.has_content?("Road rage championship")
     assert_equal 2, page.all('.card').count
@@ -71,7 +71,7 @@ class IdeasTest < ApplicationSystemTestCase
   end
 
   test 'no search results' do
-  visit(ideas_index_path)
+  visit(ideas_path)
   assert page.has_content?("No ideas found!")
 end
 end

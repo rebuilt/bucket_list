@@ -19,7 +19,7 @@ class SearchesTest < ApplicationSystemTestCase
     fill_in 'q', with: 'Mont'
     click_on  'Search' , match: :first
     # sleep(4.seconds)
-    assert current_path == ideas_index_path 
+    assert current_path == ideas_path 
     # sleep(4.seconds)
     assert page.has_content?("Climb Mont Blanc")
     # sleep(4.seconds)

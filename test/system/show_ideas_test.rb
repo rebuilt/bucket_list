@@ -9,7 +9,7 @@ class ShowIdeasTest < ApplicationSystemTestCase
     idea.photo_url =  "http://fpoimg.com/255x170"
     idea.save!
 
-    visit(show_idea_path(idea))
+    visit(idea_path(idea))
     assert page.has_content?('See the northern lights')
     assert page.has_content?("#{idea.done_count} have done this")
     assert page.has_content?("Created on #{idea.created_at.strftime("%d %b '%y")}")
