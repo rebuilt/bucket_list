@@ -49,8 +49,8 @@ class IdeasTest < ApplicationSystemTestCase
     idea.save!
 
     visit edit_idea_path(idea)
-    fill_in 'done_count', with: 10
-    fill_in 'title', with: 'Travel to Zermatt'
+    fill_in 'Done count', with: 10
+    fill_in 'Title', with: 'Travel to Zermatt'
     click_on 'Update'
 
     sleep(4.seconds)
@@ -62,8 +62,8 @@ class IdeasTest < ApplicationSystemTestCase
     idea = Idea.new
     idea.save!
     visit(edit_idea_path(idea))
-    fill_in('done_count', with: 73)
-    fill_in('title', with: 'Learn Ruby on Rails')
+    fill_in('Done count', with: 73)
+    fill_in('Title', with: 'Learn Ruby on Rails')
     click_on('Update')
     click_on('Learn Ruby on Rails')
     assert page.has_content?('Learn Ruby on Rails')
