@@ -3,8 +3,10 @@ require 'test_helper'
 class IdeaTest < ActiveSupport::TestCase
   test 'the first empty Idea created is first in the list' do
     first_idea = Idea.new
+    first_idea.title = 'first'
     first_idea.save!
     second_idea = Idea.new
+    second_idea.title = 'second'
     second_idea.save!
     assert_equal(first_idea, Idea.all.first)
   end
@@ -29,8 +31,8 @@ class IdeaTest < ActiveSupport::TestCase
     updated_at = idea.updated_at
     idea.title = ''
 
-    assert idea.save
-    refute_equal idea.updated_at, updated_at
+    refute idea.save
+    assert_equal idea.updated_at, updated_at
   end
 
   test 'the first complete Idea created is the first in the list' do
@@ -61,6 +63,7 @@ class IdeaTest < ActiveSupport::TestCase
 
   test 'updated_at is changed after updating done_count' do
     idea = Idea.new
+    idea.title = 'title'
     idea.done_count = 46
     idea.save!
     first_updated_at = idea.updated_at
@@ -71,6 +74,7 @@ class IdeaTest < ActiveSupport::TestCase
 
   test 'updated_at is changed after updating photo_url' do
     idea = Idea.new
+    idea.title = 'Swimming'
     idea.photo_url = '/images/swimmers.jpg'
     idea.save!
     first_updated_at = idea.updated_at
@@ -152,6 +156,18 @@ class IdeaTest < ActiveSupport::TestCase
 
     recent_ideas = Idea.most_recent
     assert recent_ideas.length == 3
+
+  end
+
+  test 'create an idea with a title over the maximum allowed length' do
+    idea = Idea.new
+    idea.title = 'This is a title that is too long.  It is supposed to fail, so if it fails please understand that is what is supposed to happen.  Have a good day.  That is all.  Stop reading this now.  Go home.  Are you too good for your home?'
+    refute idea.save
+  end
+
+  test 'ideas without titles are not valid' do
+    idea = Idea.new
+    refute idea.save
 
   end
 end

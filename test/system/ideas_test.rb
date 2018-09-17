@@ -60,6 +60,7 @@ class IdeasTest < ApplicationSystemTestCase
   
   test 'edit idea' do
     idea = Idea.new
+    idea.title = 'Test idea'
     idea.save!
     visit(edit_idea_path(idea))
     fill_in('Done count', with: 73)
@@ -68,6 +69,7 @@ class IdeasTest < ApplicationSystemTestCase
     click_on('Learn Ruby on Rails')
     assert page.has_content?('Learn Ruby on Rails')
     assert page.has_content?('73 have done this')
+    refute page.has_content?('Test idea')
   end
 
   test 'no search results' do
