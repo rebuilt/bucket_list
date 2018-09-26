@@ -14,9 +14,12 @@ class IdeasController < ApplicationController
   end
 
   def create
-    idea = Idea.new(idea_resource_params)
-    idea.save!
+    @idea = Idea.new(idea_resource_params)
+    if(@idea.save)
     redirect_to ideas_path
+    else
+      render 'new'
+    end
   end
 
   def edit
