@@ -84,4 +84,19 @@ end
   assert page.has_content?("Title can't be blank")
   end
 
+  test 'new idea title is too long' do
+  visit(new_idea_path)
+  fill_in('Title', with: "This is a title that is too long because it goes on and on and on.  Don't think this will save properly, it will give a message about it being too long.")
+  click_on('Create Idea')
+  assert page.has_content?("Title is too long")
+  end
+
+  test 'existing idea updated with no title' do
+  idea = Idea.new(title: 'Exciting idea!')
+  idea.save!
+  visit(edit_idea_path(idea))
+  fill_in('Title', with: '')
+  click_on('Update Idea')
+  assert page.has_content?("Title can't be blank")
+  end
 end
