@@ -76,4 +76,12 @@ class IdeasTest < ApplicationSystemTestCase
   visit(ideas_path)
   assert page.has_content?("No ideas found!")
 end
+
+  test 'new idea with no title' do
+  visit(new_idea_path)
+  fill_in('Done count', with: 232)
+  click_on('Create Idea')
+  assert page.has_content?("Title can't be blank")
+  end
+
 end
