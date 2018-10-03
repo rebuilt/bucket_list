@@ -58,11 +58,12 @@
       <%=  form_for([@idea, @comment]) do |form| %>
         <img class="avatar" src="#images/avatar.png" alt="Portrait of logged in user">
         <div class="input-group">
-          <label class="input-group__label" for="comment">Add a comment</label>
-          <textarea id="comment" class="input-group__field"></textarea>
+          form.label(:body, 'Add a comment', class: 'input-group__label')
+          form.text_area(:body, class: 'input-group__field')
         </div>
-        <button class="btn btn--primary" type="submit">Post</button>
+        form.submit('Post', class: 'btn btn--primary')
       <% end     %>
+      
       <ul class="comments__listing">
         <li class="comment">
           <img class="avatar" src="#images/avatar.png" alt="Portrait of commenter">
