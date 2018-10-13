@@ -13,6 +13,7 @@ class IdeaCommentsTest < ApplicationSystemTestCase
     fill_in('Add a comment', with: 'This is a fantastic idea!')
     click_on('Post', match: :first)
     assert_equal idea_path(idea), page.current_path
+    assert page.has_content?('This is a fantastic idea!')
 
   end
 end
