@@ -7,7 +7,7 @@ class IdeaCommentsTest < ApplicationSystemTestCase
   #   assert_selector "h1", text: "IdeaComment"
   # end
   test 'adding a comment to and idea' do 
-    idea = Idea.new
+    idea = Idea.new title: 'Volunteer for a charity'
     idea.save
     visit(idea_path(idea))
     fill_in('Add a comment', with: 'This is a fantastic idea!')
