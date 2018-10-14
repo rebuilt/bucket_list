@@ -10,6 +10,7 @@ Rails.application.routes.draw do
 
   get 'styles/organisms'
 
+  resources :users
   resources :ideas do
     resources :comments
   end

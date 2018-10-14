@@ -10,6 +10,9 @@ class CommentTest < ActiveSupport::TestCase
     comment = Comment.new
     comment.body = "I'd like to do this"
     comment.idea = idea
+
+    user = User.new(email: 'me@home.com')
+    comment.user = user
     comment.save!
 
     idea2 = Idea.new(title: 'dancing in the dark')
@@ -24,7 +27,7 @@ class CommentTest < ActiveSupport::TestCase
     idea = Idea.new(title: 'Riding a camel')
     idea.save!
    
-    comment = Comment.new(body: 'Great idea!') 
+    comment = Comment.new(body: 'Great idea!', user: User.new) 
     idea.comments  << comment
     idea.save!
 
