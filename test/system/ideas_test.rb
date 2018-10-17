@@ -7,6 +7,12 @@ class IdeasTest < ApplicationSystemTestCase
   #   assert_selector "h1", text: "Ideas"
   # end
   test 'create new idea' do
+ user = User.new email: 'test@epfl.ch'
+ user.save!
+
+ visit(new_user_path)
+ fill_in('Email', with: user.email)
+ click_on('Log in')
 
     visit new_idea_path
     fill_in 'Title', with: 'See the matterhorn'
@@ -21,16 +27,16 @@ class IdeasTest < ApplicationSystemTestCase
   end
 
   test 'create two ideas records' do
-    idea1 = Idea.new
-    idea1.title = "Cycle across Australia"
-    idea1.done_count = 2
-    idea1.photo_url = "https://cdn.shopify.com/s/files/1/0871/3066/products/FJ-1019-CappuccinoCup190ml-Feijoa-Cropped_1024x1024.jpg?v=1524591768"
+    idea1 = Idea.new title: "Cycle across Australia",
+    done_count: 2, 
+    photo_url: "https://cdn.shopify.com/s/files/1/0871/3066/products/FJ-1019-CappuccinoCup190ml-Feijoa-Cropped_1024x1024.jpg?v=1524591768", 
+    user: User.new
     idea1.save!
 
-    idea2 = Idea.new
-    idea2.title = "Road rage championship"
-    idea2.done_count = 2
-    idea2.photo_url = "https://i.ytimg.com/vi/qvE2miLMbNk/maxresdefault.jpg"
+    idea2 = Idea.new title: "Road rage championship",
+    done_count: 2,
+    photo_url: "https://i.ytimg.com/vi/qvE2miLMbNk/maxresdefault.jpg",
+    user: User.new
     idea2.save!
     
     visit ideas_path 
@@ -42,10 +48,10 @@ class IdeasTest < ApplicationSystemTestCase
   end
 
   test 'create idea and visit page to edit that idea' do
-    idea = Idea.new
-    idea.title = 'See the alps'
-    idea.done_count = 3
-    idea.photo_url = "https://i.ytimg.com/vi/qvE2miLMbNk/maxresdefault.jpg"
+    idea = Idea.new title: 'See the alps',
+    done_count: 3,
+    photo_url: "https://i.ytimg.com/vi/qvE2miLMbNk/maxresdefault.jpg",
+    user: User.new
     idea.save!
 
     visit edit_idea_path(idea)
@@ -59,8 +65,8 @@ class IdeasTest < ApplicationSystemTestCase
   end
   
   test 'edit idea' do
-    idea = Idea.new
-    idea.title = 'Test idea'
+    idea = Idea.new title: 'Test idea',
+      user: User.new
     idea.save!
     visit(edit_idea_path(idea))
     fill_in('Done count', with: 73)
@@ -92,7 +98,7 @@ end
   end
 
   test 'existing idea updated with no title' do
-  idea = Idea.new(title: 'Exciting idea!')
+    idea = Idea.new(title: 'Exciting idea!', user: User.new)
   idea.save!
   visit(edit_idea_path(idea))
   fill_in('Title', with: '')

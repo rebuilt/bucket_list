@@ -5,17 +5,17 @@ class CommentTest < ActiveSupport::TestCase
   #   assert true
   # end
   test 'changing the associated Idea for a comment' do
-    idea = Idea.new(title: 'Riding a camel')
+    idea = Idea.new(title: 'Riding a camel', user: User.new)
     idea.save!
     comment = Comment.new
     comment.body = "I'd like to do this"
     comment.idea = idea
 
-    user = User.new(email: 'me@home.com')
-    comment.user = user
+    comment.user = User.new(email: 'me@home.com')
+  
     comment.save!
 
-    idea2 = Idea.new(title: 'dancing in the dark')
+    idea2 = Idea.new(title: 'dancing in the dark', user: User.new)
     idea2.save!
     comment.idea = idea2
     comment.save!
@@ -24,10 +24,10 @@ class CommentTest < ActiveSupport::TestCase
   end
 
   test 'cascading save' do
-    idea = Idea.new(title: 'Riding a camel')
+    idea = Idea.new(title: 'Riding a camel', user: User.new)
     idea.save!
    
-    comment = Comment.new(body: 'Great idea!', user: User.new) 
+    comment = Comment.new(body: 'Great idea!', user: idea.user)
     idea.comments  << comment
     idea.save!
 
@@ -36,11 +36,11 @@ class CommentTest < ActiveSupport::TestCase
 
   test 'Comments are ordered correctly' do
 
-    idea = Idea.new(title: 'Riding a camel')
+    idea = Idea.new(title: 'Riding a camel', user: User.new)
     idea.save!
    
-    comment = Comment.new(body: 'That would be great fun') 
-    comment2 = Comment.new(body: 'I agree!  That sounds like a good time')
+    comment = Comment.new(body: 'That would be great fun', user: idea.user) 
+    comment2 = Comment.new(body: 'I agree!  That sounds like a good time', user: idea.user)
     
     idea.comments << comment
     idea.comments << comment2
