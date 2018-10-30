@@ -7,13 +7,7 @@ class IdeasTest < ApplicationSystemTestCase
   #   assert_selector "h1", text: "Ideas"
   # end
   test 'create new idea' do
- user = User.new email: 'test@epfl.ch'
- user.save!
-
- visit(new_user_path)
- fill_in('Email', with: user.email)
- click_on('Log in')
-
+createUserAndLogIn
     visit new_idea_path
     fill_in 'Title', with: 'See the matterhorn'
     fill_in 'Done count', with: "3"
@@ -27,6 +21,7 @@ class IdeasTest < ApplicationSystemTestCase
   end
 
   test 'create two ideas records' do
+   createUserAndLogIn 
     idea1 = Idea.new title: "Cycle across Australia",
     done_count: 2, 
     photo_url: "https://cdn.shopify.com/s/files/1/0871/3066/products/FJ-1019-CappuccinoCup190ml-Feijoa-Cropped_1024x1024.jpg?v=1524591768", 
@@ -48,6 +43,7 @@ class IdeasTest < ApplicationSystemTestCase
   end
 
   test 'create idea and visit page to edit that idea' do
+   createUserAndLogIn 
     idea = Idea.new title: 'See the alps',
     done_count: 3,
     photo_url: "https://i.ytimg.com/vi/qvE2miLMbNk/maxresdefault.jpg",
@@ -65,6 +61,7 @@ class IdeasTest < ApplicationSystemTestCase
   end
   
   test 'edit idea' do
+   createUserAndLogIn 
     idea = Idea.new title: 'Test idea',
       user: User.new
     idea.save!
@@ -79,11 +76,13 @@ class IdeasTest < ApplicationSystemTestCase
   end
 
   test 'no search results' do
+   createUserAndLogIn 
   visit(ideas_path)
   assert page.has_content?("No ideas found!")
 end
 
   test 'new idea with no title' do
+   createUserAndLogIn 
   visit(new_idea_path)
   fill_in('Done count', with: 232)
   click_on('Create Idea')
@@ -105,4 +104,14 @@ end
   click_on('Update Idea')
   assert page.has_content?("Title can't be blank")
   end
+
+  def createUserAndLogIn
+ user = User.new email: 'test@epfl.ch'
+ user.save!
+
+ visit(new_user_path)
+ fill_in('Email', with: user.email)
+ click_on('Log in')
+  end
 end
+
