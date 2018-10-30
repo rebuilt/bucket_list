@@ -7,8 +7,16 @@ class IdeaCommentsTest < ApplicationSystemTestCase
   #   assert_selector "h1", text: "IdeaComment"
   # end
   test 'adding a comment to and idea' do 
+    user = User.new email: 'test@epfl.ch'
+    user.save!
+
     idea = Idea.new title: 'Volunteer for a charity'
     idea.save
+
+    visit(new_user_path)
+    fill_in('Email', with: user.email)
+    click_on('Log in')
+
     visit(idea_path(idea))
     fill_in('Add a comment', with: 'This is a fantastic idea!')
     click_on('Post', match: :first)
