@@ -90,6 +90,9 @@ end
   end
 
   test 'new idea title is too long' do
+    visit(new_user_path)
+    fill_in('Email', with: 'joveln@gmail.com')
+    click_on('Log in')
   visit(new_idea_path)
   fill_in('Title', with: "This is a title that is too long because it goes on and on and on.  Don't think this will save properly, it will give a message about it being too long.")
   click_on('Create Idea')
