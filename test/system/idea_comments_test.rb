@@ -10,7 +10,7 @@ class IdeaCommentsTest < ApplicationSystemTestCase
     user = User.new email: 'test@epfl.ch'
     user.save!
 
-    idea = Idea.new title: 'Volunteer for a charity'
+    idea = Idea.new title: 'Volunteer for a charity', user: user
     idea.save
 
     visit(new_user_path)
@@ -26,7 +26,7 @@ class IdeaCommentsTest < ApplicationSystemTestCase
   end
 
   test 'comments cannot be added when not logged in' do
-    idea = Idea.new title: 'Try archery'
+    idea = Idea.new title: 'Try archery', user: User.new
     idea.save!
 
     visit(idea_path(idea))

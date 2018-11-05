@@ -10,16 +10,20 @@ class HomePagesTest < ApplicationSystemTestCase
     
     idea = Idea.new 
     idea.title = "First idea"
+    idea.user = User.new
     idea.save!
 
     idea2 = Idea.new 
     idea2.title = "Second idea"
+    idea2.user = User.new
     idea2.save!
     idea3 = Idea.new 
     idea3.title = "Third idea"
+    idea3.user = User.new
     idea3.save!
     idea4 = Idea.new 
     idea4.title = "Fourth idea"
+    idea4.user = User.new
     idea4.save!
 
     visit(root_path)

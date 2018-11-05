@@ -7,6 +7,7 @@ class ShowIdeasTest < ApplicationSystemTestCase
     idea.title = "See the northern lights"
     idea.done_count = 3
     idea.photo_url =  "http://fpoimg.com/255x170"
+    idea.user = User.new
     idea.save!
 
     visit(idea_path(idea))
