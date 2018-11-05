@@ -9,73 +9,77 @@
           <div class="goal__owner">
             <%# <img class="avatar" src="#images/avatar.png" alt="Portrait of Frederick Rose"> %>
               <%=  image_tag("avatar.png", width: 42) %>
-            <p>Created by <a href="#">Frederick Rose</a></p>
-          </div>
-          <h1 class="gamma"> <%= @idea.title %></h1>
-          <ul class="horizontal-list btn-group">
-            <li>
+              <p>Created by <a href="#">Frederick Rose</a></p>
+            </div>
+            <h1 class="gamma"> <%= @idea.title %></h1>
+            <ul class="horizontal-list btn-group">
+              <li>
                 <%= link_to(edit_idea_path(@idea.id), class: "btn delta") do %>
-                <svg class="icon-check icon--sm" role="presentation"> </svg>
-                Edit
-              <% end       %>
-            </li>
-            <li>
-              <button class="btn delta" type="button">
-                <svg class="icon-heart icon--sm" role="presentation">
-                  <!-- <use xlink:href="images/icons-defs.svg#heart"></use> -->
-                </svg>
-                Add
-              </button>
-            </li>
-          </ul>
-          <div class="goal__intro">
-            <p> <%= @idea.description  %> </p>
+                  <svg class="icon-check icon--sm" role="presentation"> </svg>
+                  Edit
+                <% end       %>
+              </li>
+              <li>
+                <button class="btn delta" type="button">
+                  <svg class="icon-heart icon--sm" role="presentation">
+                    <!-- <use xlink:href="images/icons-defs.svg#heart"></use> -->
+                  </svg>
+                  Add
+                </button>
+              </li>
+            </ul>
+            <div class="goal__intro">
+              <p> <%= @idea.description  %> </p>
+            </div>
+            <div class="goal__meta">
+              <%= form_tag(url: user_goals_path(@user), method: :post) do %>
+                <%= hidden_field_tag(:idea_id, idea.id) %>
+                <%= submit('Add goal', class: 'btn') %>
+              <% end %>
+              <span>Created on <time datetime="2017-08-27T03:48"> <%=  @idea.created_at.strftime("%d %b '%y") %> </time></span>
+              <span><%= @idea.done_count %> have done this</span>
+              <span><a href="#comments">3 comments</a></span>
+            </div>
+            <ul class="tags-list">
+              <li><a href="#nature">Nature</a></li>
+              <li><a href="#swimming">Swimming</a></li>
+              <li>
+                <a href="#travel" class="selected">
+                  Travel
+                  <i class="remove-tag">&times;</i>
+                </a>
+              </li>
+              <li><a href="#tag4" data-filter="tag-4">Tag 4</a></li>
+            </ul>
           </div>
-          <div class="goal__meta">
-            <span>Created on <time datetime="2017-08-27T03:48"> <%=  @idea.created_at.strftime("%d %b '%y") %> </time></span>
-            <span><%= @idea.done_count %> have done this</span>
-            <span><a href="#comments">3 comments</a></span>
-          </div>
-          <ul class="tags-list">
-            <li><a href="#nature">Nature</a></li>
-            <li><a href="#swimming">Swimming</a></li>
-            <li>
-              <a href="#travel" class="selected">
-                Travel
-                <i class="remove-tag">&times;</i>
-              </a>
-            </li>
-            <li><a href="#tag4" data-filter="tag-4">Tag 4</a></li>
-          </ul>
         </div>
       </div>
     </div>
-  </div>
-  <div class="content-wrapper">
-    <div class="comments">
-      <h2 class="comments__title">Discussion <span>3 comments</span></h2>
-      <% if(@display_add_comment) %>
-      <%=  form_for([@idea, @comment], html: { class: 'comments__input' }) do |form| %>
-        <img class="avatar" src="#images/avatar.png" alt="Portrait of logged in user">
-        <div class="input-group">
-          <%=   form.label(:body, 'Add a comment', class: 'input-group__label') %> 
-          <%= form.text_area(:body, class: 'input-group__field') %>
-        </div>
-        <%=  form.submit('Post', class: 'btn btn--primary')%>
-      <% end     %>
-      <% end           %>
-      
-      <ul class="comments__listing">
-        <% @idea.comments.each do |comment|  %>
-        <li class="comment">
-          <img class="avatar" src="#images/avatar.png" alt="Portrait of commenter">
-          <div class="comment__body">
-            <h3 class="comment__title">Tom Jenkinson <time datetime="2017-08-28T13:48">Today</time></h3>
-            <p><%= comment.body  %></p>
+    <div class="content-wrapper">
+      <div class="comments">
+        <h2 class="comments__title">Discussion <span>3 comments</span></h2>
+        <% if(@display_add_comment) %>
+          <%=  form_for([@idea, @comment], html: { class: 'comments__input' }) do |form| %>
+            <img class="avatar" src="#images/avatar.png" alt="Portrait of logged in user">
+              <div class="input-group">
+                <%=   form.label(:body, 'Add a comment', class: 'input-group__label') %> 
+                <%= form.text_area(:body, class: 'input-group__field') %>
+              </div>
+              <%=  form.submit('Post', class: 'btn btn--primary')%>
+            <% end     %>
+          <% end           %>
+
+          <ul class="comments__listing">
+            <% @idea.comments.each do |comment|  %>
+              <li class="comment">
+                <img class="avatar" src="#images/avatar.png" alt="Portrait of commenter">
+                  <div class="comment__body">
+                    <h3 class="comment__title">Tom Jenkinson <time datetime="2017-08-28T13:48">Today</time></h3>
+                    <p><%= comment.body  %></p>
+                  </div>
+                </li>
+              <%  end  %>
+            </ul>
           </div>
-        </li>
-      <%  end  %>
-      </ul>
-    </div>
-  </div>
-</main>
+        </div>
+      </main>
