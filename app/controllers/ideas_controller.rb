@@ -11,9 +11,10 @@ class IdeasController < ApplicationController
     @display_add_comment = session[:user_id].present?
 
     if(session[:user_id].present?)
-    @user = User.find(session[:user_id])
+      @user = User.find(session[:user_id])
+      @disable_add_goal = @user.goals.exists?(@idea.id)
     else
-    @user = nil
+      @user = nil
     end
   end
 

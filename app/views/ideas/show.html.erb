@@ -15,7 +15,11 @@
             <ul class="horizontal-list btn-group">
               <li>
                 <%= link_to(edit_idea_path(@idea.id), class: "btn delta") do %>
-                  <svg class="icon-check icon--sm" role="presentation"> </svg>
+                  <svg class="icon-check icon--sm" role="presentation">
+                        <use xlink:href="/images/icons-defs.svg#pluss">
+                  
+                  </svg>
+
                   Edit
                 <% end       %>
               </li>
@@ -23,9 +27,9 @@
                 <% if(@user.present?)      %>
                 <%= form_tag(user_goals_path(@user)) do   %>
                   <%= hidden_field_tag('idea_id', @idea.id) %>
-                  <%= button_tag(class: 'btn delta', type: 'submit') do %>
+                  <%= button_tag(class: 'btn delta', type: 'submit', disabled: @disable_add_goal) do %>
                       <svg class="icon-heart icon--sm" role="presentation">
-                        <!-- <use xlink:href="images/icons-defs.svg#heart"></use> -->
+                        <use xlink:href="/images/icons-defs.svg#heart">
                       </svg>
                       Add
                   <% end  %>
@@ -61,7 +65,7 @@
         <h2 class="comments__title">Discussion <span>3 comments</span></h2>
         <% if(@display_add_comment) %>
           <%=  form_for([@idea, @comment], html: { class: 'comments__input' }) do |form| %>
-            <img class="avatar" src="#images/avatar.png" alt="Portrait of logged in user">
+            <img class="avatar" src="/images/avatar.png" alt="Portrait of logged in user">
               <div class="input-group">
                 <%=   form.label(:body, 'Add a comment', class: 'input-group__label') %> 
                 <%= form.text_area(:body, class: 'input-group__field') %>
@@ -73,7 +77,7 @@
           <ul class="comments__listing">
             <% @idea.comments.each do |comment|  %>
               <li class="comment">
-                <img class="avatar" src="#images/avatar.png" alt="Portrait of commenter">
+                <img class="avatar" src="/images/avatar.png" alt="Portrait of commenter">
                   <div class="comment__body">
                     <h3 class="comment__title">Tom Jenkinson <time datetime="2017-08-28T13:48">Today</time></h3>
                     <p><%= comment.body  %></p>
