@@ -10,7 +10,7 @@ class IdeasController < ApplicationController
     @comment = Comment.new
     @display_add_comment = session[:user_id].present?
 
-    if(session[:user_id].present?)
+    if session[:user_id].present?
       @user = User.find(session[:user_id])
       @disable_add_goal = @user.goals.exists?(@idea.id)
     else
@@ -26,7 +26,7 @@ class IdeasController < ApplicationController
     user = User.find(session[:user_id])
     @idea = Idea.new(idea_resource_params)
     @idea.user = user
-    if(@idea.save)
+    if @idea.save
       redirect_to ideas_path
     else
       render 'new'
@@ -40,7 +40,7 @@ class IdeasController < ApplicationController
 
   def update
     @idea = Idea.find(params[:id])
-    if(@idea.update(idea_resource_params))
+    if @idea.update(idea_resource_params)
       redirect_to account_ideas_path
     else
       render 'edit'
@@ -48,7 +48,6 @@ class IdeasController < ApplicationController
   end
 
   private
-
 
   def idea_resource_params
     params.require(:idea).permit(:title, :description, :photo_url, :done_count, :name_of_user)

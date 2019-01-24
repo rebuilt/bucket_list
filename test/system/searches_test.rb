@@ -1,4 +1,4 @@
-require "application_system_test_case"
+require 'application_system_test_case'
 
 class SearchesTest < ApplicationSystemTestCase
   # test "visiting the index" do
@@ -9,22 +9,22 @@ class SearchesTest < ApplicationSystemTestCase
 
   test 'create record and search for it' do
     idea = Idea.new
-    idea.title = "Climb Mont Blanc"
+    idea.title = 'Climb Mont Blanc'
     idea.user = User.new
     idea.save!
     idea2 = Idea.new
-    idea2.title = "Visit Niagra Falls"
+    idea2.title = 'Visit Niagra Falls'
     idea2.user = User.new
     idea2.save!
 
     visit root_path
     fill_in 'q', with: 'Mont'
-    click_on  'Search' , match: :first
+    click_on  'Search', match: :first
     # sleep(4.seconds)
-    assert current_path == ideas_path 
+    assert current_path == ideas_path
     # sleep(4.seconds)
-    assert page.has_content?("Climb Mont Blanc")
+    assert page.has_content?('Climb Mont Blanc')
     # sleep(4.seconds)
-    refute page.has_content?("Visit Niagra Falls")
+    refute page.has_content?('Visit Niagra Falls')
   end
 end

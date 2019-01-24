@@ -1,12 +1,11 @@
-require "application_system_test_case"
+require 'application_system_test_case'
 
 class ShowIdeasTest < ApplicationSystemTestCase
-
   test 'show displays title' do
     idea = Idea.new
-    idea.title = "See the northern lights"
+    idea.title = 'See the northern lights'
     idea.done_count = 3
-    idea.photo_url =  "http://fpoimg.com/255x170"
+    idea.photo_url =  'http://fpoimg.com/255x170'
     idea.user = User.new
     idea.save!
 
@@ -17,7 +16,5 @@ class ShowIdeasTest < ApplicationSystemTestCase
     # sleep(10.seconds)
     click_on 'Edit'
     assert current_path == edit_idea_path(idea)
-
-
   end
 end

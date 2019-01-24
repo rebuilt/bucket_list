@@ -1,9 +1,7 @@
 class StylesController < ApplicationController
-  def atoms
-  end
+  def atoms; end
 
-  def molecules
-  end
+  def molecules; end
 
   def organisms
     @ideas = Idea.all

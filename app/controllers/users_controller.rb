@@ -1,3 +1,4 @@
+# This class controls behavior for users
 class UsersController < ApplicationController
   def new
     @user = User.new

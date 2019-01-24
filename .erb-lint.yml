@@ -1,0 +1,5 @@
+---
+linters:
+  ErbSafety:
+    enabled: true
+    better_html_config: .better-html.yml
