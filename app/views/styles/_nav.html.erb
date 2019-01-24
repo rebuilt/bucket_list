@@ -1,5 +1,7 @@
-<% if(current == true)  %>
-<%=  link_to(title, uri, class: 'current')           %>
+<div>
+<% if(current == true) %>
+  <%= link_to(title, uri, class: 'current') %>
 <% else %>
-<%=  link_to(title, uri)           %>
+  <%= link_to(title, uri) %> 
 <% end %>
+</div>
