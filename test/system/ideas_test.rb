@@ -21,17 +21,17 @@ class IdeasTest < ApplicationSystemTestCase
 
   test 'create two ideas records' do
     createUserAndLogIn
-    idea1 = Idea.new title: 'Cycle across Australia',
+    first_idea = Idea.new title: 'Cycle across Australia',
                      done_count: 2,
                      photo_url: 'https://cdn.shopify.com/s/files/1/0871/3066/products/FJ-1019-CappuccinoCup190ml-Feijoa-Cropped_1024x1024.jpg?v=1524591768',
-                     user: User.new
-    idea1.save!
+                     user: User.find(1)
+    first_idea.save!
 
-    idea2 = Idea.new title: 'Road rage championship',
+    second_idea = Idea.new title: 'Road rage championship',
                      done_count: 2,
                      photo_url: 'https://i.ytimg.com/vi/qvE2miLMbNk/maxresdefault.jpg',
-                     user: User.new
-    idea2.save!
+                     user: User.find(1)
+    second_idea.save!
 
     visit ideas_path
     assert page.has_content?('Cycle across Australia')
@@ -45,7 +45,7 @@ class IdeasTest < ApplicationSystemTestCase
     idea = Idea.new title: 'See the alps',
                     done_count: 3,
                     photo_url: 'https://i.ytimg.com/vi/qvE2miLMbNk/maxresdefault.jpg',
-                    user: User.new
+                    user: User.find(1)
     idea.save!
 
     visit edit_idea_path(idea)
@@ -53,7 +53,7 @@ class IdeasTest < ApplicationSystemTestCase
     fill_in 'Title', with: 'Travel to Zermatt'
     click_on 'Update'
 
-    sleep(4.seconds)
+    # sleep(4.seconds)
     assert page.has_content?('Travel to Zermatt')
     assert page.has_content?('10 have done this.')
   end
@@ -61,7 +61,7 @@ class IdeasTest < ApplicationSystemTestCase
   test 'edit idea' do
     createUserAndLogIn
     idea = Idea.new title: 'Test idea',
-                    user: User.new
+                    user: User.find(1)
     idea.save!
     visit(edit_idea_path(idea))
     fill_in('Done count', with: 73)
@@ -88,9 +88,7 @@ class IdeasTest < ApplicationSystemTestCase
   end
 
   test 'new idea title is too long' do
-    visit(new_user_path)
-    fill_in('Email', with: 'joveln@gmail.com')
-    click_on('Log in')
+    createUserAndLogIn
     visit(new_idea_path)
     fill_in('Title', with: "This is a title that is too long because it goes on and on and on.  Don't think this will save properly, it will give a message about it being too long.")
     click_on('Create Idea')
@@ -107,11 +105,9 @@ class IdeasTest < ApplicationSystemTestCase
   end
 
   def createUserAndLogIn
-    user = User.new email: 'test@epfl.ch'
-    user.save!
-
     visit(new_user_path)
-    fill_in('Email', with: user.email)
+    fill_in('Email', with: 'me@mail.com')
+    fill_in('Password', with: '123')
     click_on('Log in')
   end
 end

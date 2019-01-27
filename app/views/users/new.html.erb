@@ -5,7 +5,7 @@
     </header>
 
     <main>
-      <% if(@user.error.any?) %>
+      <% if(@user.errors.any?) %>
       <div class="alert alert--wide">
         <%= @user.errors.full_messages.join('<br />').html_safe %>
       </div>
