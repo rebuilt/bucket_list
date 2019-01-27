@@ -1,20 +1,17 @@
 require 'application_system_test_case'
 
 class IdeaCommentsTest < ApplicationSystemTestCase
-  # test "visiting the index" do
-  #   visit idea_comments_url
-  #
-  #   assert_selector "h1", text: "IdeaComment"
-  # end
   test 'adding a comment to and idea' do
-    user = User.new email: 'test@epfl.ch'
-    user.save!
+    user = User.new email: 'test@epfl.ch', password: '123'
+    user.save
 
     idea = Idea.new title: 'Volunteer for a charity', user: user
     idea.save
 
     visit(new_user_path)
-    fill_in('Email', with: user.email)
+    fill_in('Email', with: 'test@epfl.ch')
+    fill_in('Password', with: '123')
+    sleep(5.seconds)
     click_on('Log in')
 
     visit(idea_path(idea))
@@ -25,7 +22,7 @@ class IdeaCommentsTest < ApplicationSystemTestCase
   end
 
   test 'comments cannot be added when not logged in' do
-    idea = Idea.new title: 'Try archery', user: User.new
+    idea = Idea.new title: 'Try archery', user: User.new( email: 'test@epfl.ch', password: '123')
     idea.save!
 
     visit(idea_path(idea))
