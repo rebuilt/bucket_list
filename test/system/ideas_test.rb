@@ -22,15 +22,15 @@ class IdeasTest < ApplicationSystemTestCase
   test 'create two ideas records' do
     createUserAndLogIn
     first_idea = Idea.new title: 'Cycle across Australia',
-                     done_count: 2,
-                     photo_url: 'https://cdn.shopify.com/s/files/1/0871/3066/products/FJ-1019-CappuccinoCup190ml-Feijoa-Cropped_1024x1024.jpg?v=1524591768',
-                     user: User.find(1)
+                          done_count: 2,
+                          photo_url: 'https://cdn.shopify.com/s/files/1/0871/3066/products/FJ-1019-CappuccinoCup190ml-Feijoa-Cropped_1024x1024.jpg?v=1524591768',
+                          user: User.find_by(email: @email)
     first_idea.save!
 
     second_idea = Idea.new title: 'Road rage championship',
-                     done_count: 2,
-                     photo_url: 'https://i.ytimg.com/vi/qvE2miLMbNk/maxresdefault.jpg',
-                     user: User.find(1)
+                           done_count: 2,
+                           photo_url: 'https://i.ytimg.com/vi/qvE2miLMbNk/maxresdefault.jpg',
+                           user: User.find_by(email: @email)
     second_idea.save!
 
     visit ideas_path
@@ -105,9 +105,12 @@ class IdeasTest < ApplicationSystemTestCase
   end
 
   def createUserAndLogIn
+    @email = 'me@mail.com'
     visit(new_user_path)
-    fill_in('Email', with: 'me@mail.com')
+    fill_in('Email', with: @email)
     fill_in('Password', with: '123')
-    click_on('Log in')
+    within find('.new_user') do
+      click_on('Sign up')
+    end
   end
 end

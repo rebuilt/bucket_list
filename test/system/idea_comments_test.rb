@@ -8,10 +8,10 @@ class IdeaCommentsTest < ApplicationSystemTestCase
     idea = Idea.new title: 'Volunteer for a charity', user: user
     idea.save
 
-    visit(new_user_path)
+    visit(new_session_path)
     fill_in('Email', with: 'test@epfl.ch')
     fill_in('Password', with: '123')
-    sleep(5.seconds)
+    # sleep(5.seconds)
     click_on('Log in')
 
     visit(idea_path(idea))
