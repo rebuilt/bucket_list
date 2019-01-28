@@ -1,1 +1,32 @@
-This is the Sessions New view
+<main>
+  <section class="envelope">
+    <header class="text--center">
+      <h1 class="gamma">Sign up</h1>
+    </header>
+
+    <main>
+      <% if(@user.errors.any?) %>
+      <div class="alert alert--wide">
+        <%= @user.errors.full_messages.join('<br />').html_safe %>
+      </div>
+      <% end %>
+      <br />
+
+      <%= form_tag(sessions_path) do  %>
+      <div class="input-group">
+        <%= label(:email, nil, class: 'input-group__label') %>
+        <%= text_field(:email, nil, class: 'input-group__field', placeholder: 'e.g.  me@epfl.ch') %>
+      </div>
+
+      <div class="input-group">
+        <%= label(:password, nil, class: 'input-group__label') %>
+        <%= password_field(:password, nil, class: 'input-group__field') %>
+      </div>
+
+      <div class="prompt">
+        <%= submit('Log in', class: 'btn btn--primary prompt__confirm') %>
+      </div>
+      <% end %>
+    </main>
+  </section>
+</main>
