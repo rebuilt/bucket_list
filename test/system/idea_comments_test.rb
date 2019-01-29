@@ -12,7 +12,9 @@ class IdeaCommentsTest < ApplicationSystemTestCase
     fill_in('Email', with: 'test@epfl.ch')
     fill_in('Password', with: '123')
     # sleep(5.seconds)
-    click_on('Log in')
+    within find('.sign-in') do
+      click_on('Log in')
+    end
 
     visit(idea_path(idea))
     fill_in('Add a comment', with: 'This is a fantastic idea!')
