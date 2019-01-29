@@ -9,7 +9,11 @@ Rails.application.routes.draw do
 
   get 'styles/organisms'
 
-  resources :sessions, only: [:new, :create]
+  get 'login', to: 'users#new'
+
+  get 'signup', to: 'sessions#new'
+
+  resources :sessions, only: %i[new create]
 
   resources :users do
     resources :goals
