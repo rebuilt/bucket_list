@@ -9,9 +9,9 @@ Rails.application.routes.draw do
 
   get 'styles/organisms'
 
-  get 'login', to: 'users#new'
+  get 'login', to: 'sessions#new'
 
-  get 'signup', to: 'sessions#new'
+  get 'signup', to: 'users#new'
 
   resources :sessions, only: %i[new create destroy] 
 
