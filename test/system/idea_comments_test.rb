@@ -24,7 +24,7 @@ class IdeaCommentsTest < ApplicationSystemTestCase
   end
 
   test 'comments cannot be added when not logged in' do
-    idea = Idea.new title: 'Try archery', user: User.new( email: 'test@epfl.ch', password: '123')
+    idea = Idea.new title: 'Try archery', user: User.new(email: 'test@epfl.ch', password: '123')
     idea.save!
 
     visit(idea_path(idea))
