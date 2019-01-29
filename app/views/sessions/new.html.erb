@@ -12,7 +12,7 @@
         <% end %>
         </div>
       <% end %>
-      <%= form_tag(sessions_path) do %>
+      <%= form_tag(sessions_path, class: 'sign-in') do %>
       <div class="input-group">
         <%= label_tag(:email, nil, class: 'input-group__label') %>
         <%= text_field_tag(:email, nil, class: 'input-group__field', placeholder: 'e.g.  me@epfl.ch') %>
