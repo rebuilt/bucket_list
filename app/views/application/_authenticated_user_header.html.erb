@@ -2,6 +2,6 @@
   <ul class="main-navigation">
     <li> <%= link_to('Inspiration', ideas_path)%> </li>
     <li> <%= link_to('My Account', account_ideas_path)%> </li>
-    <li> <%= link_to('Log Out', ideas_path)%> </li>
+    <li> <%= link_to('Log Out',session_path(1), method: :delete )%> </li>
   </ul>
 </nav>
