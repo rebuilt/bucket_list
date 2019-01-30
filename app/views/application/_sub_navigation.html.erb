@@ -1,0 +1,12 @@
+<nav>
+  <ul class="sub-navigation">
+    <% links = [account_path, account_goals_path, account_ideas_path, root_path] %>
+    <% link_names = ['Account', 'Goals', 'Ideas', 'Following'] %>
+    <% links.zip link_names %>
+    <% links.zip(link_names).each do |link, name| %> 
+      <% active = '' %>
+      <% active = 'current' if current_page?(link)%>
+      <li> <%= link_to(name, link, class: active) %> </li>
+    <% end %>
+  </ul>
+</nav>
