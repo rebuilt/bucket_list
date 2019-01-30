@@ -2,7 +2,7 @@ class AccountController < ApplicationController
   before_action :ensure_authenticated
 
   def ideas
-    user = User.find(session[:user_id])
+    user = current_user 
     @ideas = user.ideas
   end
 

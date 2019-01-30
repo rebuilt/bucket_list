@@ -10,37 +10,41 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20_190_123_211_739) do
-  create_table 'comments', force: :cascade do |t|
-    t.string 'body'
-    t.integer 'idea_id'
-    t.datetime 'created_at', null: false
-    t.datetime 'updated_at', null: false
-    t.integer 'user_id'
-    t.index ['idea_id'], name: 'index_comments_on_idea_id'
-    t.index ['user_id'], name: 'index_comments_on_user_id'
+ActiveRecord::Schema.define(version: 20190130093235) do
+
+  create_table "comments", force: :cascade do |t|
+    t.string "body"
+    t.integer "idea_id"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.integer "user_id"
+    t.index ["idea_id"], name: "index_comments_on_idea_id"
+    t.index ["user_id"], name: "index_comments_on_user_id"
   end
 
-  create_table 'ideas', force: :cascade do |t|
-    t.string 'title'
-    t.datetime 'created_at', null: false
-    t.datetime 'updated_at', null: false
-    t.integer 'done_count'
-    t.string 'photo_url'
-    t.string 'description'
-    t.integer 'user_id'
-    t.index ['user_id'], name: 'index_ideas_on_user_id'
+  create_table "ideas", force: :cascade do |t|
+    t.string "title"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.integer "done_count"
+    t.string "photo_url"
+    t.string "description"
+    t.integer "user_id"
+    t.index ["user_id"], name: "index_ideas_on_user_id"
   end
 
-  create_table 'ideas_users', id: false, force: :cascade do |t|
-    t.integer 'idea_id', null: false
-    t.integer 'user_id', null: false
+  create_table "ideas_users", id: false, force: :cascade do |t|
+    t.integer "idea_id", null: false
+    t.integer "user_id", null: false
   end
 
-  create_table 'users', force: :cascade do |t|
-    t.string 'email'
-    t.datetime 'created_at', null: false
-    t.datetime 'updated_at', null: false
-    t.string 'password_digest'
+  create_table "users", force: :cascade do |t|
+    t.string "email"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.string "password_digest"
+    t.string "name"
+    t.string "avatar_url"
   end
+
 end
