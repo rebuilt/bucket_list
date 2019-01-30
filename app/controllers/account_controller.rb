@@ -14,6 +14,10 @@ class AccountController < ApplicationController
     redirect_to account_path
   end
 
+  def goals
+    @goals = current_user.goals
+  end
+
   def ensure_authenticated
     redirect_to login_path unless logged_in?
   end
