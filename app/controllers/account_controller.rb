@@ -1,8 +1,9 @@
 class AccountController < ApplicationController
   before_action :ensure_authenticated
+  helper_method :current_user
 
   def ideas
-    user = current_user 
+    user = current_user
     @ideas = user.ideas
   end
 
