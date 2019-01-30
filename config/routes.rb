@@ -17,6 +17,8 @@ Rails.application.routes.draw do
 
   patch 'account', to: 'account#update'
 
+  get '/accounts/goals', to: 'account#goals', as: 'account_goals'
+
   resources :sessions, only: %i[new create destroy]
 
   resources :users do
