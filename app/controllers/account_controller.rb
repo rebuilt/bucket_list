@@ -11,6 +11,10 @@ class AccountController < ApplicationController
 
   end
 
+  def update
+
+  end
+
   def ensure_authenticated
     redirect_to login_path unless logged_in?
   end
