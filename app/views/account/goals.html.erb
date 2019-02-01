@@ -13,7 +13,7 @@
       <ul class="bare-list float-grid css-grid">
         <% @goals.each do |goal| %>
           <li>
-            <%= render(partial: 'goal_card', locals: {idea: goal.idea, goal: goal}) %>
+            <%= render(partial: 'goal_card', locals: { goal: goal}) %>
           </li>
         <% end %>
       </ul>
