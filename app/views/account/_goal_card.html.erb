@@ -1,12 +1,5 @@
 <div class="card">
   <div class="card__thumb">
-    <a href="#nolink">
-      <img src="http://fpoimg.com/255x170" alt="Northern lights over mountain covered in snow">
-      <div class="card__intro">
-        <h4 class="card__title">See the Northern Lights</h4>
-        <span>75 have done this</span>
-      </div>
-    </a>
     <%= link_to(idea_path(idea)) do %>
       <%=image_tag('http://fpoimg.com/255x170', alt: "Northern lights over mountain covered in snow") %>
       <div class="card__intro">
