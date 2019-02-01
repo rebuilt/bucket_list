@@ -8,7 +8,7 @@
         <div class="goal">
           <div class="goal__owner">
             <%= image_tag("avatar.png", width: 42) %>
-            <p>Created by <a href="#">Frederick Rose</a></p>
+            <p>Created by <a href="#"><%= @idea.user.name %> <%= @idea.user.email %></a></p>
           </div>
           <h1 class="gamma"><%= @idea.title %></h1>
           <ul class="horizontal-list btn-group">
