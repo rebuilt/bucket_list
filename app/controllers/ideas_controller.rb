@@ -1,7 +1,8 @@
 class IdeasController < ApplicationController
+  include roles_module
   before_action :ensure_authenticated, only: %i[new create edit update]
   before_action :load_idea,            only: %i[show edit update]
-  before_action :ensure_owner,         only: %i[edit update]
+  before_action :authorize_to_edit_idea,         only: %i[edit update]
 
   def index
     @search_term = params[:q]
@@ -60,7 +61,7 @@ class IdeasController < ApplicationController
     @idea = Idea.find(params[:id])
   end
 
-  def ensure_owner
+  def authorize_to_edit_idea
     if current_user.role == 'admin'
       return
     elsif @idea.user == current_user
