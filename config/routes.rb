@@ -9,13 +9,13 @@ Rails.application.routes.draw do
 
   get 'styles/organisms'
 
-  get 'login', to: 'sessions#new'
+  get '/login', to: 'sessions#new'
 
-  get 'signup', to: 'users#new'
+  get '/signup', to: 'users#new'
 
   get '/account', to: 'account#edit'
 
-  patch 'account', to: 'account#update'
+  patch '/account', to: 'account#update'
 
   get '/account/goals', to: 'account#goals', as: 'account_goals'
 
