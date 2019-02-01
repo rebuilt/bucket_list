@@ -1,22 +1,24 @@
 <div class="card">
   <div class="card__thumb">
-    <%= link_to(idea_path(idea)) do %>
+    <%= link_to(idea_path(goal)) do %>
+      <%= render(partial: 'idea_photo', locals: {photo_url: goal.photo_url} ) %>
       <%=image_tag('http://fpoimg.com/255x170', alt: "Northern lights over mountain covered in snow") %>
       <div class="card__intro">
-        <h4 class="card__title"><%= idea.title %> </h4>
-        <span><% idea.done_count %> have done this</span>
+        <h4 class="card__title"><%= goal.title %> </h4>
+        <span><% goal.done_count %> have done this</span>
       </div>
     <% end %>
   </div>
   <div class="card__footer">
     <button class="btn delta" type="submit">
       <svg class="icon-delete" role="presentation">
-        <use href="/icons/icons-defs.svg#delete"></use>
+        <use href="<%= image_path('icons/icons-defs.svg') %>#delete"></use>
+
       </svg>
       Remove
     </button>
     <% if can_edit?(goal) %>
-      <a class="btn delta" href="<%= edit_idea_path(idea) %>">
+      <a class="btn delta" href="<%= edit_idea_path(goal) %>">
         <svg class="icon-edit" role="presentation">
           <use href="<%= image_path('icons/icons-defs.svg') %>#edit"></use>
         </svg>
