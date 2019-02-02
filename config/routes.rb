@@ -21,9 +21,10 @@ Rails.application.routes.draw do
 
   resources :sessions, only: %i[new create destroy]
 
-  resources :users do
+  resources :users, only: %i[new create edit update] do
     resources :goals
   end
+
   resources :ideas do
     resources :comments
   end
