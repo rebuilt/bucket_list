@@ -1,8 +1,8 @@
 class IdeasController < ApplicationController
-  include roles_module
-  before_action :ensure_authenticated, only: %i[new create edit update]
-  before_action :load_idea,            only: %i[show edit update]
-  before_action :authorize_to_edit_idea,         only: %i[edit update]
+  include RolesHelper
+  before_action :ensure_authenticated,   only: %i[new create edit update]
+  before_action :load_idea,              only: %i[show edit update]
+  before_action :authorize_to_edit_idea, only: %i[edit update]
 
   def index
     @search_term = params[:q]
@@ -62,12 +62,6 @@ class IdeasController < ApplicationController
   end
 
   def authorize_to_edit_idea
-    if current_user.role == 'admin'
-      return
-    elsif @idea.user == current_user
-      return
-    end
-
-    redirect_to(account_path)
+    redirect_to(account_path) unless can_edit?(@idea)
   end
 end
