@@ -1,6 +1,6 @@
 # This class controls behavior for users resource
 class UsersController < ApplicationController
-  before_action :ensure_admin, only: [:edit, :update]
+  before_action :ensure_admin, only: %i[edit update]
 
   def new
     @user = User.new
