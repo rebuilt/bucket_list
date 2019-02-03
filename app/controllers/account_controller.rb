@@ -1,6 +1,6 @@
 class AccountController < ApplicationController
-
   before_action :ensure_authenticated
+
   def ideas
     user = current_user
     @ideas = user.ideas
@@ -16,7 +16,6 @@ class AccountController < ApplicationController
   def goals
     @goals = current_user.goals
   end
-
 
   private
 
