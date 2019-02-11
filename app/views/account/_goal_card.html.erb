@@ -2,7 +2,6 @@
   <div class="card__thumb">
     <%= link_to(idea_path(goal)) do %>
       <%= render(partial: 'idea_photo', locals: {photo_url: goal.photo_url} ) %>
-      <%=image_tag('http://fpoimg.com/255x170', alt: "Northern lights over mountain covered in snow") %>
       <div class="card__intro">
         <h4 class="card__title"><%= goal.title %> </h4>
         <span><% goal.done_count %> have done this</span>

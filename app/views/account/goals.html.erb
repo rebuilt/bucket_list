@@ -7,9 +7,6 @@
   </div>
   <div class="content-wrapper">
     <% if(@goals.any? ) %>
-      <div>
-        <p>Search completed using "<%= @search_term %>".</p>
-      </div>
       <ul class="bare-list float-grid css-grid">
         <% @goals.each do |goal| %>
           <li>
