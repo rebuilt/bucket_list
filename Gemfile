@@ -54,6 +54,7 @@ end
 gem 'tzinfo-data', platforms: %i[mingw mswin x64_mingw jruby]
 
 gem 'bcrypt'
-gem 'rubocop'
 gem 'erb_lint', require: false
+gem 'kaminari'
 gem 'reek'
+gem 'rubocop'
