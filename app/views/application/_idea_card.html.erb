@@ -15,14 +15,14 @@
       </svg>
       Like
     </button>
-    <% if(@user.present?) %>
-      <%= form_tag(user_goals_path(@user)) do %>
+    <% if(logged_in?) %>
+      <%= form_tag(user_goals_path(current_user)) do %>
         <%= hidden_field_tag('idea_id', idea.id) %>
         <%= button_tag(class: 'btn delta', type: 'submit', disabled: @disable_add_goal) do %>
           <svg class="icon-heart icon--sm" role="presentation">
-            <use xlink:href="/images/icons-defs.svg#heart" />
+            <use xlink:href="/images/icons-defs.svg#pluss" />
           </svg>
-          Add
+          Add Goal
         <% end %>
       <% end %>
     <% end %>
