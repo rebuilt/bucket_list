@@ -21,8 +21,8 @@
               <% end %>
             </li>
             <li>
-              <% if(@user.present?) %>
-                <%= form_tag(user_goals_path(@user)) do %>
+              <% if(logged_in?) %>
+                <%= form_tag(user_goals_path(current_user)) do %>
                   <%= hidden_field_tag('idea_id', @idea.id) %>
                   <%= button_tag(class: 'btn delta', type: 'submit', disabled: @disable_add_goal) do %>
                     <svg class="icon-heart icon--sm" role="presentation">
@@ -45,7 +45,7 @@
               </time></span
               >
               <span><%= @idea.done_count %> have done this</span>
-              <span><a href="#comments">3 comments</a></span>
+              <span><a href="#comments"><%= @idea.comments.length %>  comments</a></span>
           </div>
           <ul class="tags-list">
             <li><a href="#nature">Nature</a></li>
@@ -64,7 +64,7 @@
   </div>
   <div class="content-wrapper">
     <div class="comments">
-      <h2 class="comments__title">Discussion <span>3 comments</span></h2>
+      <h2 class="comments__title">Discussion <span><%= @idea.comments.length %>  comments</span></h2>
       <% if(@display_add_comment) %>
         <%= form_for([@idea, @comment], html: {class: 'comments__input' }, remote: true) do |form| %>
           <img class="avatar" src="/images/avatar.png" alt="Portrait of logged in user" />
