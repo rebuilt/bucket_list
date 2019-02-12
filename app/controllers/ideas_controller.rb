@@ -15,7 +15,7 @@ class IdeasController < ApplicationController
     @display_add_comment = session[:user_id].present?
 
     if (logged_in?)
-      @disable_add_goal = @user.goals.exists?(@idea.id)
+      @disable_add_goal = current_user.goals.exists?(@idea.id)
     end
   end
 
