@@ -15,9 +15,12 @@ commentBody.className = 'comment__body';
 commentBody.appendChild(commentHeader);
 commentBody.appendChild(commentParagraph);
 
-var avatar = document.createElement('img');
-avatar.className = 'avatar';
-avatar.setAttribute('src', '/images/avatar.png');
+<%# var avatar = document.createElement('img'); %>
+<%# avatar.className = 'avatar'; %>
+<%# avatar.setAttribute('src', '/images/avatar.png'); %>
+
+var avatar = document.createElement('div');
+avatar.innerHTML = "<%= j image_tag('/assets/avatar.png', class: 'avatar') %>";
 
 var commentListItem = document.createElement('li');
 commentListItem.className = 'comment';
