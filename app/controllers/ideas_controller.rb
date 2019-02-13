@@ -12,7 +12,6 @@ class IdeasController < ApplicationController
 
   def show
     @comment = Comment.new
-    @display_add_comment = session[:user_id].present?
   end
 
   def new
