@@ -13,10 +13,6 @@ class IdeasController < ApplicationController
   def show
     @comment = Comment.new
     @display_add_comment = session[:user_id].present?
-
-    if (logged_in?)
-      @disable_add_goal = current_user.goals.exists?(@idea.id)
-    end
   end
 
   def new
