@@ -7,11 +7,11 @@
       <div class="media__body">
         <div class="goal">
           <div class="goal__owner">
-            <%= image_tag("avatar.png", width: 42) %>
-            <p>Created by <a href="#"><%= @idea.user.name %> <%= @idea.user.email %></a></p>
+            <p> <%= image_tag("avatar.png", width: 42) %>
+         Created by <a href="#"><%= @idea.user.name %> <%= @idea.user.email %></a></p>
           </div>
           <h1 class="gamma"><%= @idea.title %></h1>
-          <ul class="horizontal-list btn-group">
+          <ul class="horizontal-list btn-group bare-list">
             <li>
               <%= link_to(edit_idea_path(@idea), class: "btn delta") do %>
                 <svg class="icon-check icon--sm" role="presentation">
@@ -24,9 +24,9 @@
               <% if(logged_in?) %>
                 <%= form_tag(user_goals_path(current_user)) do %>
                   <%= hidden_field_tag('idea_id', @idea.id) %>
-                  <%= button_tag(class: 'btn delta', type: 'submit', disabled: @disable_add_goal) do %>
+                  <%= button_tag(class: 'btn delta', type: 'submit') do %>
                     <svg class="icon-heart icon--sm" role="presentation">
-                      <use xlink:href="/images/icons-defs.svg#heart" />
+                      <use xlink:href="/images/icons-defs.svg#pluss" />
                     </svg>
                     Add
                   <% end %>
