@@ -53,8 +53,15 @@ end
 # Windows does not include zoneinfo files, so bundle the tzinfo-data gem
 gem 'tzinfo-data', platforms: %i[mingw mswin x64_mingw jruby]
 
+# Provides password encryption
 gem 'bcrypt'
+# A linter for ERB files
 gem 'erb_lint', require: false
+# A paginator
 gem 'kaminari'
+# An api for a photo library
+gem 'unsplash'
+# code smell detector for ruby
 gem 'reek'
+# code formatter for ruby
 gem 'rubocop'
