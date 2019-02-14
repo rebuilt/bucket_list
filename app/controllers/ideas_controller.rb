@@ -19,9 +19,8 @@ class IdeasController < ApplicationController
   end
 
   def create
-    user = User.find(session[:user_id])
     @idea = Idea.new(idea_resource_params)
-    @idea.user = user
+    @idea.user = current_user
     if @idea.save
       redirect_to ideas_path
     else
@@ -55,7 +54,8 @@ class IdeasController < ApplicationController
   end
 
   def load_idea
-    @idea = Idea.find(params[:id])
+    @idea = Idea.find(params[:id]) unless params[:id].nil?
+    @idea = Idea.find(params[:idea_id]) unless params[:idea_id].nil?
   end
 
   def authorize_to_edit_idea
