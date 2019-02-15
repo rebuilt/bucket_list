@@ -5,8 +5,12 @@ class PhotosController < IdeasController
   before_action :authorize_to_edit_idea
 
   def index
-    @photo = Unsplash::Photo.search(@idea.title).first
+    @photos = Unsplash::Photo.search(@idea.title)
   end
 
-  def create; end
+  def create
+    @idea.update_attributes photo_url: params[:photo_url]
+
+    redirect_to edit_idea_path(@idea)
+  end
 end
