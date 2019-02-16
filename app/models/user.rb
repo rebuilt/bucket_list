@@ -5,14 +5,14 @@ class User < ApplicationRecord
   has_secure_password
   before_validation :downcase_email
   after_initialize :default_role!
-  validates :role, inclusion: { in: %w(registered admin) }
+  validates :role, inclusion: { in: %w[registered admin] }
   validates :email, uniqueness: true
-
+  mount_uploader :avatar, AvatarUploader
 
   private
 
   def downcase_email
-    self.email = email.downcase unless self.email.nil?
+    self.email = email.downcase unless email.nil?
   end
 
   def default_role!
