@@ -61,6 +61,8 @@ gem 'erb_lint', require: false
 gem 'kaminari'
 # An api for a photo library
 gem 'unsplash'
+# A code/runtime/object inspector
+gem 'pry'
 # code smell detector for ruby
 gem 'reek'
 # code formatter for ruby
