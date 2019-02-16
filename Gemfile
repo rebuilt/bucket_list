@@ -55,6 +55,8 @@ gem 'tzinfo-data', platforms: %i[mingw mswin x64_mingw jruby]
 
 # Provides password encryption
 gem 'bcrypt'
+# Enable image upload
+gem 'carrierwave', '~> 1.1.0'
 # A linter for ERB files
 gem 'erb_lint', require: false
 # A paginator
