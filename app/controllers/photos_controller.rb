@@ -5,7 +5,10 @@ class PhotosController < IdeasController
   before_action :authorize_to_edit_idea
 
   def index
-    @photos = Unsplash::Photo.search(@idea.title)
+    # @photos = Unsplash::Photo.random(count: 3)
+    @query = params[:query]
+    @query = @idea.title if @query.nil? || @query == ""
+    @photos = Unsplash::Photo.search(@query, 1, 3)
   end
 
   def create
