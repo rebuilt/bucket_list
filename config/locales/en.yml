@@ -30,4 +30,17 @@
 # available at http://guides.rubyonrails.org/i18n.html.
 
 en:
-  hello: "Hello world"
+  account: 'My account'
+  all_ideas: 'Inspiration'
+  login: 'Log in'
+  logout: 'Log out'
+  signup: 'Sign up'
+
+  helpers:
+    label:
+      user:
+        avatar: 'Avatar'
+        email:  'Email'
+        name:   'Name'
+    submit:
+      update: 'Update account'
