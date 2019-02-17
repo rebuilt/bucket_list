@@ -7,7 +7,7 @@ class PhotosController < IdeasController
   def index
     # @photos = Unsplash::Photo.random(count: 3)
     @query = params[:query]
-    @query = @idea.title if @query.nil? || @query == ""
+    @query = @idea.title if @query.nil? || @query == ''
     @photos = Unsplash::Photo.search(@query, 1, 3)
   end
 
