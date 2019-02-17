@@ -1,0 +1,14 @@
+fr:
+  account: "Mon Compte"
+  all_ideas: "Inspiration"
+  login: "Connexion"
+  logout: "Deconnexion"
+  signup: "Inscription"
+
+  helpers:
+    label:
+      user:
+        avatar: "Avatar"
+        email:  "Email"
+        name:   "Nom et prenom"
+ 
