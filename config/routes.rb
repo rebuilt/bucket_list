@@ -1,36 +1,39 @@
 Rails.application.routes.draw do
-  root to: 'home#index'
+    root to: 'home#index'
+    
+  scope '/:locale' do
+    root to: 'home#index'
 
-  get 'home/index'
+    get 'home/index'
 
-  get 'styles/atoms'
+    get 'account/ideas'
 
-  get 'styles/molecules'
+    get 'styles/atoms'
 
-  get 'styles/organisms'
+    get 'styles/molecules'
 
-  get '/login', to: 'sessions#new'
+    get 'styles/organisms'
 
-  get '/signup', to: 'users#new'
+    get '/login', to: 'sessions#new'
 
-  get '/account', to: 'account#edit'
+    get '/signup', to: 'users#new'
 
-  patch '/account', to: 'account#update'
+    get '/account', to: 'account#edit'
 
-  get '/account/goals', to: 'account#goals', as: 'account_goals'
+    patch '/account', to: 'account#update'
 
-  resources :sessions, only: %i[new create destroy]
+    get '/account/goals', to: 'account#goals', as: 'account_goals'
 
-  resources :users, only: %i[new create edit update] do
-    resources :goals
+    resources :sessions, only: %i[new create destroy]
+
+    resources :users, only: %i[new create edit update] do
+      resources :goals
+    end
+
+    resources :ideas do
+      resources :comments
+      resources :photos
+    end
   end
-
-  resources :ideas do
-    resources :comments
-    resources :photos
-  end
-
-  get 'account/ideas'
-
   # For details on the DSL available within this file, see http://guides.rubyonrails.org/routing.html
 end
