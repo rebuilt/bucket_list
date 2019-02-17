@@ -1,24 +1,26 @@
 <main>
   <div class="content-wrapper">
+
     <%= render(partial: 'sub_navigation')%>
+
     <h1>
       Account details
       <% if current_user.avatar.present? %>
         <img class="avatar" src="<%= current_user.avatar_url %>">
       <% end %>
     </h1>
-    <%= form_for(current_user, url: account_path, html: {class: 'form--inpage'}) do |form| %>
 
+    <%= form_for(current_user, url: account_path, html: {class: 'form--inpage'}) do |form| %>
       <div class="input-group input-group--horizontal">
-        <%= form.label(:email, 'Email', class: 'input-group__label')%>
+        <%= form.label(:email, translate('helpers.label.user.email'), class: 'input-group__label')%>
         <%= form.text_field(:email, class: 'input-group__field')%>
       </div>
       <div class="input-group input-group--horizontal">
-        <%= form.label(:name, 'Name', class: 'input-group__label')%>
+        <%= form.label(:name, translate('helpers.label.user.name'), class: 'input-group__label')%>
         <%= form.text_field(:name, class: 'input-group__field')%>
       </div>
       <div class="input-group input-group--horizontal">
-        <%= form.label(:avatar, class: 'input-group__label')%>
+        <%= form.label(translate('helpers.label.user.avatar'), class: 'input-group__label')%>
         <%= form.file_field(:avatar, class: 'input-group__field')%>
       </div>
       <div class="prompt">
@@ -26,5 +28,6 @@
         <%= form.submit('Update account', class: 'btn btn--primary') %>
       </div>
     <% end %>
+
   </div>
 </main>
