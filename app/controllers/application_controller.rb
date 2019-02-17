@@ -1,4 +1,6 @@
 class ApplicationController < ActionController::Base
+  before_action :set_locale
+
   protect_from_forgery with: :exception
 
   helper_method :logged_in?, :header, :current_user
@@ -21,9 +23,18 @@ class ApplicationController < ActionController::Base
     @current_user = User.find(session[:user_id])
   end
 
+  def set_locale
+    I18n.locale = params[:locale] || I18n.default_locale
+  end
+
+  def default_url_options
+    { locale: I18n.locale }
+  end
+
   private
 
   def ensure_authenticated
     redirect_to login_path unless logged_in?
   end
+
 end
