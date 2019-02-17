@@ -1,7 +1,7 @@
 <nav class="site-header__nav">
   <ul class="main-navigation">
-    <li> <%= link_to('Inspiration', ideas_path)%> </li>
-    <li> <%= link_to('My Account', account_path)%> </li>
-    <li> <%= link_to('Log Out',session_path(1), method: :delete )%> </li>
+    <li> <%= link_to(translate('all_ideas'), ideas_path) %> </li>
+    <li> <%= link_to(translate('account'), account_path) %> </li>
+    <li> <%= link_to(translate('logout'), session_path(1), method: :delete ) %> </li>
   </ul>
 </nav>
