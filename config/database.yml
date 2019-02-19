@@ -25,7 +25,7 @@ production:
   encoding: unicode
   database: bucket_list
   pool: 5
-  username: bucketlist
+  username: bucketlist 
   <%# password: AMvT_2$!qrGC&c3NbyCm %>
   password: secret
   host: localhost
