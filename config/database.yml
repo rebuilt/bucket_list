@@ -21,5 +21,12 @@ test:
   database: db/test.sqlite3
 
 production:
-  <<: *default
-  database: db/production.sqlite3
+  adapter: postgresql
+  encoding: unicode
+  database: bucket_list
+  pool: 5
+  username: bucketlist
+  <%# password: AMvT_2$!qrGC&c3NbyCm %>
+  password: secret
+  host: localhost
+  port: 5432
