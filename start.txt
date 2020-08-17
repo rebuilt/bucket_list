@@ -1,0 +1,110 @@
+
+
+times in msec
+ clock   self+sourced   self:  sourced script
+ clock   elapsed:              other lines
+
+000.009  000.009: --- NVIM STARTING ---
+000.284  000.275: locale set
+000.750  000.466: inits 1
+000.762  000.012: window checked
+000.987  000.225: parsing arguments
+000.990  000.003: expanding arguments
+001.051  000.061: inits 2
+001.535  000.485: init highlight
+002.201  000.305  000.305: sourcing /usr/share/nvim/runtime/syntax/syncolor.vim
+002.353  000.553  000.249: sourcing /usr/share/nvim/runtime/syntax/synload.vim
+018.773  016.359  016.359: sourcing /usr/share/nvim/runtime/filetype.vim
+018.834  017.133  000.221: sourcing /usr/share/nvim/runtime/syntax/syntax.vim
+018.893  000.010  000.010: sourcing /usr/share/nvim/runtime/filetype.vim
+018.941  000.006  000.006: sourcing /usr/share/nvim/runtime/filetype.vim
+018.999  000.023  000.023: sourcing /usr/share/nvim/runtime/indent.vim
+019.046  000.007  000.007: sourcing /usr/share/nvim/runtime/filetype.vim
+019.105  000.024  000.024: sourcing /usr/share/nvim/runtime/ftplugin.vim
+019.153  000.004  000.004: sourcing /usr/share/nvim/runtime/macros/matchit.vim
+019.337  000.129  000.129: sourcing /home/nelson/.vim/bundle/Vundle.vim/autoload/vundle.vim
+019.524  000.121  000.121: sourcing /home/nelson/.vim/bundle/Vundle.vim/autoload/vundle/config.vim
+023.150  000.140  000.140: sourcing /usr/share/nvim/runtime/syntax/syncolor.vim
+023.656  000.134  000.134: sourcing /usr/share/nvim/runtime/syntax/syncolor.vim
+023.949  000.132  000.132: sourcing /usr/share/nvim/runtime/syntax/syncolor.vim
+073.333  050.641  050.235: sourcing /home/nelson/.vim/bundle/vim-colorschemes/colors/afterglow.vim
+073.707  072.087  003.988: sourcing /home/nelson/.config/nvim/init.vim
+073.711  000.088: sourcing vimrc file(s)
+073.954  000.098  000.098: sourcing /home/nelson/.vim/bundle/lexima.vim/plugin/lexima.vim
+074.402  000.404  000.404: sourcing /home/nelson/.vim/bundle/vim-closetag/plugin/closetag.vim
+074.798  000.348  000.348: sourcing /home/nelson/.vim/bundle/vim-surround/plugin/surround.vim
+074.976  000.120  000.120: sourcing /home/nelson/.vim/bundle/vim-commentary/plugin/commentary.vim
+075.370  000.352  000.352: sourcing /home/nelson/.vim/bundle/vim-rails/plugin/rails.vim
+076.876  001.467  001.467: sourcing /home/nelson/.vim/bundle/emmet-vim/plugin/emmet.vim
+077.184  000.141  000.141: sourcing /home/nelson/.vim/bundle/ctrlp.vim/autoload/ctrlp/mrufiles.vim
+077.267  000.348  000.207: sourcing /home/nelson/.vim/bundle/ctrlp.vim/plugin/ctrlp.vim
+077.517  000.125  000.125: sourcing /home/nelson/.vim/bundle/vim-airline/autoload/airline.vim
+077.722  000.085  000.085: sourcing /home/nelson/.vim/bundle/vim-airline/autoload/airline/init.vim
+078.076  000.088  000.088: sourcing /home/nelson/.vim/bundle/vim-airline/autoload/airline/parts.vim
+078.928  000.117  000.117: sourcing /home/nelson/.vim/bundle/vim-airline/autoload/airline/util.vim
+078.960  001.652  001.237: sourcing /home/nelson/.vim/bundle/vim-airline/plugin/airline.vim
+079.081  000.070  000.070: sourcing /home/nelson/.vim/bundle/ag/plugin/ag.vim
+079.280  000.151  000.151: sourcing /home/nelson/.vim/bundle/vim-prettier/plugin/prettier.vim
+079.799  000.376  000.376: sourcing /home/nelson/.vim/bundle/vim-textobj-user/autoload/textobj/user.vim
+080.950  001.602  001.226: sourcing /home/nelson/.vim/bundle/vim-textobj-erb/plugin/textobj/erb.vim
+081.614  000.083  000.083: sourcing /home/nelson/.vim/bundle/ale/autoload/ale/events.vim
+081.724  000.725  000.642: sourcing /home/nelson/.vim/bundle/ale/plugin/ale.vim
+082.317  000.535  000.535: sourcing /home/nelson/.vim/bundle/fzf/plugin/fzf.vim
+082.649  000.053  000.053: sourcing /usr/share/nvim/runtime/autoload/provider/pythonx.vim
+095.408  000.305  000.305: sourcing /usr/share/nvim/runtime/autoload/remote/host.vim
+095.583  013.083  012.725: sourcing /usr/share/nvim/runtime/autoload/provider/python.vim
+095.911  013.549  000.465: sourcing /home/nelson/.vim/bundle/tabnine-vim/plugin/youcompleteme.vim
+103.271  007.225  007.225: sourcing /home/nelson/.vim/bundle/vim-textobj-rubyblock/plugin/textobj/rubyblock.vim
+103.740  000.022  000.022: sourcing /usr/share/nvim/runtime/plugin/gui_shim.vim
+104.098  000.298  000.298: sourcing /usr/share/nvim/runtime/plugin/gzip.vim
+104.161  000.034  000.034: sourcing /usr/share/nvim/runtime/plugin/health.vim
+104.248  000.064  000.064: sourcing /usr/share/nvim/runtime/plugin/man.vim
+104.969  000.694  000.694: sourcing /usr/share/nvim/runtime/plugin/matchit.vim
+105.237  000.237  000.237: sourcing /usr/share/nvim/runtime/plugin/matchparen.vim
+105.973  000.709  000.709: sourcing /usr/share/nvim/runtime/plugin/netrwPlugin.vim
+106.237  000.228  000.228: sourcing /usr/share/nvim/runtime/plugin/rplugin.vim
+106.295  000.024  000.024: sourcing /usr/share/nvim/runtime/plugin/rrhelper.vim
+106.445  000.122  000.122: sourcing /usr/share/nvim/runtime/plugin/shada.vim
+106.517  000.036  000.036: sourcing /usr/share/nvim/runtime/plugin/spellfile.vim
+106.754  000.208  000.208: sourcing /usr/share/nvim/runtime/plugin/tarPlugin.vim
+106.933  000.146  000.146: sourcing /usr/share/nvim/runtime/plugin/tohtml.vim
+107.009  000.045  000.045: sourcing /usr/share/nvim/runtime/plugin/tutor.vim
+107.274  000.237  000.237: sourcing /usr/share/nvim/runtime/plugin/zipPlugin.vim
+107.308  001.846: loading plugins
+107.425  000.117: loading packages
+107.749  000.324: loading after plugins
+107.764  000.016: inits 3
+108.881  001.117: reading ShaDa
+109.755  000.873: clearing screen
+110.697  000.202  000.202: sourcing /home/nelson/.vim/bundle/vim-airline/autoload/airline/extensions.vim
+110.829  000.055  000.055: sourcing /home/nelson/.vim/bundle/vim-airline/autoload/airline/extensions/quickfix.vim
+110.968  000.028  000.028: sourcing /home/nelson/.vim/bundle/vim-airline/autoload/airline/extensions/netrw.vim
+111.092  000.032  000.032: sourcing /home/nelson/.vim/bundle/vim-airline/autoload/airline/extensions/term.vim
+111.245  000.053  000.053: sourcing /home/nelson/.vim/bundle/vim-airline/autoload/airline/extensions/ctrlp.vim
+111.555  000.077  000.077: sourcing /home/nelson/.vim/bundle/vim-airline/autoload/airline/extensions/ale.vim
+111.806  000.100  000.100: sourcing /home/nelson/.vim/bundle/vim-airline/autoload/airline/extensions/whitespace.vim
+111.990  000.047  000.047: sourcing /home/nelson/.vim/bundle/vim-airline/autoload/airline/extensions/po.vim
+112.148  000.074  000.074: sourcing /home/nelson/.vim/bundle/vim-airline/autoload/airline/extensions/wordcount.vim
+112.312  000.022  000.022: sourcing /home/nelson/.vim/bundle/vim-airline/autoload/airline/extensions/keymap.vim
+114.292  000.055  000.055: sourcing /home/nelson/.vim/bundle/vim-airline/autoload/airline/section.vim
+114.590  000.161  000.161: sourcing /home/nelson/.vim/bundle/vim-airline/autoload/airline/highlighter.vim
+117.512  000.041  000.041: sourcing /home/nelson/.vim/bundle/vim-airline/autoload/airline/themes.vim
+117.820  000.422  000.380: sourcing /home/nelson/.vim/bundle/vim-airline/autoload/airline/themes/dark.vim
+136.509  000.111  000.111: sourcing /home/nelson/.vim/bundle/vim-airline/autoload/airline/builder.vim
+136.857  000.065  000.065: sourcing /home/nelson/.vim/bundle/vim-airline/autoload/airline/extensions/default.vim
+149.260  038.001: opening buffers
+149.325  000.065: BufEnter autocommands
+149.327  000.003: editing files in windows
+154.491  005.043  005.043: sourcing /home/nelson/.vim/bundle/vim-rails/autoload/rails.vim
+167.187  000.058  000.058: sourcing /home/nelson/.vim/bundle/vim-ruby/compiler/rake.vim
+167.257  000.010  000.010: sourcing /usr/share/nvim/runtime/compiler/rake.vim
+167.352  000.295  000.228: sourcing /home/nelson/.vim/bundle/vim-rails/compiler/rails.vim
+199.853  025.711  025.711: sourcing /usr/share/nvim/runtime/autoload/provider/python3.vim
+201.523  027.551  001.840: sourcing /home/nelson/.vim/bundle/tabnine-vim/autoload/youcompleteme.vim
+264.320  000.177  000.177: sourcing /usr/share/nvim/runtime/autoload/provider.vim
+314.684  132.290: VimEnter autocommands
+314.696  000.012: before starting main loop
+341.962  000.594  000.594: sourcing /home/nelson/.vim/bundle/ale/autoload/ale/engine.vim
+342.201  000.141  000.141: sourcing /home/nelson/.vim/bundle/ale/autoload/ale/statusline.vim
+343.712  028.281: first screen update
+343.714  000.002: --- NVIM STARTED ---
