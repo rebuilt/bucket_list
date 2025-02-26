@@ -49,6 +49,8 @@ RUN bundle exec bootsnap precompile app/ lib/
 RUN apt-get update && apt-get install -y nodejs yarn 
 
 COPY package.json yarn.lock ./
+
+RUN yarn install
 # Precompiling assets for production without requiring secret RAILS_MASTER_KEY
 RUN SECRET_KEY_BASE_DUMMY=1 ./bin/rails assets:precompile
 
