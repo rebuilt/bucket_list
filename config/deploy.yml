@@ -7,7 +7,7 @@ image: rebuilt/bucket_list
 # Deploy to these servers.
 servers:
   web:
-    - nelsonjovel.com
+    - 5.78.75.96
   # job:
   #   hosts:
   #     - 192.168.0.1
