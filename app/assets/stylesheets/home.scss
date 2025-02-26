@@ -1299,7 +1299,7 @@ table {
 /* Full page background image
    ========================================================================== */
 .full-bleed {
-  background: #72797e url(../images/mountains-forests.jpg) no-repeat center
+  background: #72797e url('mountains-forests.jpg') no-repeat center
     center fixed;
   background-size: cover;
 }
@@ -1350,7 +1350,7 @@ table {
    ========================================================================== */
 
 .masthead {
-  background: #afbac4 image-url("mountain-lake.jpg") no-repeat 50% 50% / cover;
+  background: #afbac4 url("mountain-lake.jpg") no-repeat 50% 50% / cover;
   border-bottom: 1px solid #e3e5e9;
   padding: 1.6rem 0;
   margin: 0 0 6.4rem;
@@ -1407,7 +1407,7 @@ table {
    ========================================================================== */
 .banner {
   /* Use short-hand for the background properties */
-  background: #afbac4 url(../images/mountain-lake.jpg) no-repeat 50% 0% / auto
+  background: #afbac4 url('mountain-lake.jpg') no-repeat 50% 0% / auto
     787px;
   padding: 0;
   margin: 0;

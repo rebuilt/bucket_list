@@ -8,8 +8,8 @@ class SessionsController < ApplicationController
       session[:user_id] = user.id
       redirect_to account_ideas_path
     else
-      flash[:alert] = 'Email or password were invalid.  Please try again'
-      render 'new'
+      flash[:alert] = "Email or password were invalid.  Please try again"
+      render "new"
     end
   end
 

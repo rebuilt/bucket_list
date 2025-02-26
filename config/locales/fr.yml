@@ -1,0 +1,16 @@
+fr:
+  inspiration: 'Inspiration'
+  account: 'Compte'
+  logout: 'Deconnexion'
+  login: 'Connexion'
+  sign_up: 'Inscription'
+  search:
+    button: 'Recherche'
+    placeholder: 'e.g nager avec les dauphins'
+  helpers:
+    label:
+      user:
+        email: 'Email'
+        name: 'Nom et prenom'
+        avatar: 'Avatar'
+        password: 'Mot de passe'

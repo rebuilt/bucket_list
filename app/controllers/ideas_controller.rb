@@ -24,7 +24,7 @@ class IdeasController < ApplicationController
     if @idea.save
       redirect_to(ideas_path)
     else
-      render 'new'
+      render "new"
     end
   end
 
@@ -34,7 +34,7 @@ class IdeasController < ApplicationController
     if @idea.update(idea_resource_params)
       redirect_to account_ideas_path
     else
-      render 'edit'
+      render "edit"
     end
   end
 
