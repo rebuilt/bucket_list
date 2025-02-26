@@ -397,7 +397,7 @@ GEM
       faraday-multipart (~> 1.0.4)
       httparty (~> 0.20)
       oauth2 (>= 2.0.8)
-    uri (1.0.2)
+    uri (1.0.3)
     useragent (0.16.11)
     version_gem (1.1.6)
     web-console (4.2.1)
