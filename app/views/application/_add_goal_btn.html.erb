@@ -1,0 +1,9 @@
+<%= form_tag(user_goals_path(current_user), id: "goal-#{goal.id}", remote: true) do %>
+  <%= hidden_field_tag(:idea_id, goal.id)  %>
+  <%= button_tag(type: "submit", class: 'btn delta') do %>
+    <svg class="icon-heart icon--sm" role="presentation">
+      <use xlink:href="<%= asset_path("icons-defs.svg#heart")%>"></use>
+    </svg>
+      Add Goal
+  <% end %>
+<% end %>

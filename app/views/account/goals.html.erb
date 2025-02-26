@@ -1,0 +1,27 @@
+<main>
+  <div class="content-wrapper">
+    <nav>
+      <%= render(partial: "account_navigation")  %>
+    </nav>
+    <div class="page-header">
+      <h1>My Goals</h1>
+      <%= link_to("Create Ideas", new_idea_path, class: "btn")  %>
+    </div>
+  </div>
+  <div class="content-wrapper">
+    <% if @goals.any?  %>
+    <ul class="bare-list float-grid css-grid">
+      <% @goals.each do |goal|  %>
+        <%= render(partial: "goal_card", locals: {goal: goal})  %>
+      <% end %>
+    </ul>
+  <% else  %>
+    <p>
+    You don't currently have any goals.
+    </p>
+  <% end %>
+  </div>
+  <div class="see-more">
+    <button class="btn" type="button" data-more="true">See more</button>
+  </div>
+</main>

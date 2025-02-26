@@ -1,0 +1,20 @@
+<main>
+  <div class="content-wrapper">
+    <h1>Results for <%= @search_term  %> </h1>
+    <div class="see-more">
+      <%= paginate @ideas  %>
+    </div>
+    <ul class="bare-list float-grid css-grid">
+      <% cards = ["Go to the beach ", "be an interesting person","dance all night", "go to the lake","watch a musical", "set up a guard", "sing a song", "jump up and down", "hunt wild game", "wear a batsuit and fight crime"]  %>
+      <% @ideas.each do |idea|  %>
+        <li><%= render(partial: "idea_card", locals: {idea: idea})   %></li>
+      <% end %>
+    </ul>
+    <div class="see-more">
+      <%= paginate @ideas  %>
+    </div>
+  </div>
+  <div class="see-more">
+    <button class="btn" type="button" data-more="true">See more</button>
+  </div>
+</main>

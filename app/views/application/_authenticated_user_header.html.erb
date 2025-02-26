@@ -1,0 +1,7 @@
+<nav class="site-header__nav">
+  <ul class="main-navigation">
+    <li><%= link_to t('inspiration'), ideas_path  %></li>
+    <li><%= link_to t('account'), account_ideas_path  %></li>
+    <li><%= link_to t('logout'), session_path(0), method: :delete  %></li>
+  </ul>
+</nav>

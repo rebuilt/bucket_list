@@ -1,0 +1,13 @@
+const idea = document.getElementById('goal-<%= @idea.id  %>')
+const container = idea.parentElement
+console.log(idea)
+console.log(idea.parentElement)
+idea.parentElement.removeChild(idea)
+
+const form = document.createElement('form')
+
+const button = document.createElement('button')
+button.innerText = "Add Goal"
+
+form.appendChild(button)
+container.appendChild(form)

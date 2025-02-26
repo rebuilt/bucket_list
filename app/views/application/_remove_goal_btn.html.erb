@@ -1,0 +1,6 @@
+<%= link_to(user_goal_path(current_user, goal), method: :delete, id: "goal-#{goal.id}", class: "btn delta" ,remote: true) do %>
+    <svg class="icon-delete icon--sm" role="presentation">
+      <use xlink:href="<%= asset_path("icons-defs.svg#delete")%>"></use>
+    </svg>
+    REMOVE GOAL
+<% end %>

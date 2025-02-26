@@ -1,0 +1,12 @@
+<main>
+  <div class="content-wrapper">
+  <nav>
+    <ul class="sub-navigation">
+      <li><a href="#nolink">Idea</a></li>
+      <%= link_to('Photos', idea_photos_path(@idea))  %>
+    </ul>
+  </nav>
+    <h1>Edit Idea</h1>
+    <%= render(partial: "form")  %>
+  </div>
+</main>

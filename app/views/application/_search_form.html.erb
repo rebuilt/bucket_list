@@ -1,0 +1,9 @@
+<%= form_tag(ideas_path, method: :get, class: 'form full')  do %>
+  <div class="input-inline">
+    <%= label_tag("global-search-input", "Looking for inspiration?", class: "input-group__label sr-only")  %>
+    <div class="input-row">
+      <%= text_field_tag( "q", "", id:  "global-search-input", placeholder: t('search.placeholder'), class: "input-row__field") %>
+      <%= button_tag(t('button'), class: "btn btn--inline btn--primary" )  %>
+    </div>
+  </div>
+<% end %>

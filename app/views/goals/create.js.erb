@@ -1,0 +1,22 @@
+var svgUse = document.createElementNS("http://www.w3.org/2000/svg", 'use');
+svgUse.setAttribute('href', '<%= image_path("icons-defs.svg") %>#delete');
+
+var svgDelete = document.createElementNS("http://www.w3.org/2000/svg", "svg");
+svgDelete.setAttribute('class', 'icon-delete');
+svgDelete.setAttribute('role', 'presentation');
+svgDelete.appendChild(svgUse);
+
+var buttonText = document.createTextNode('Remove Goal');
+var removeGoalLink = document.createElement('a');
+removeGoalLink.className = 'btn delta';
+removeGoalLink.appendChild(svgDelete);
+removeGoalLink.appendChild(buttonText);
+removeGoalLink.setAttribute('id', 'goal-<%= @idea.id  %>')
+removeGoalLink.setAttribute('data-remote','true')
+removeGoalLink.setAttribute('data-method','delete')
+removeGoalLink.setAttribute('rel', 'nofollow')
+removeGoalLink.setAttribute('href', '<%= user_goal_path(current_user, @idea)  %>')
+
+
+var addGoalLink = document.getElementById('goal-<%= @idea.id %>');
+addGoalLink.parentNode.replaceChild(removeGoalLink, addGoalLink);

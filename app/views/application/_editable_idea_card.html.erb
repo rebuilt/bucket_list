@@ -1,0 +1,31 @@
+<div id="idea-<%= idea.id  %>"class="card">
+  <div class="card__thumb">
+    <%= link_to(idea_path(idea)) do  %>
+      <% if idea.photo_url.present?  %>
+        <img src="<%= idea.photo_url  %>" alt="Northern lights over mountain covered in snow">
+      <% else  %>
+        <img src="http://fpoimg.com/255x170?text=Preview" alt="Northern lights over mountain covered in snow">
+      <% end %>
+      <div class="card__intro">
+        <h4 class="card__title"><%= idea.title  %></h4>
+        <span>75 have done this</span>
+      </div>
+    <% end %>
+
+  </div>
+  <div class="card__footer">
+    <%= link_to(idea_path(idea), class: 'btn delta', method: :delete, remote: true) do  %>
+      <svg class="icon-delete" role="presentation">
+        <use xlink:href="<%= asset_url("icons-defs.svg" + "#delete") %>"></use>
+      </svg>
+      Delete
+    <% end %>
+
+    <%= link_to(edit_idea_path(idea), class: "btn delta", role: "presentation") do %>
+      <svg class="icon-edit" role="presentation">
+        <use xlink:href="<%= asset_url("icons-defs.svg" + "#edit") %>"></use>
+      </svg>
+      Edit
+    <% end %>
+  </div>
+</div>

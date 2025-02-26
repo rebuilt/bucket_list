@@ -1,0 +1,30 @@
+<main>
+  <div class="content-wrapper">
+    <div class="page-header">
+      <h1>Edit User</h1>
+    </div>
+    <% if(@user.errors.any?) %>
+      <div class="alert alert--wide">
+        <%= @user.errors.full_messages.join('<br />') %>
+      </div>
+    <% end %>
+    <%= form_for(@user, html: { class: "form--inpage" }) do |f| %>
+      <div class="input-group input-group--horizontal">
+        <%= f.label(:email, class: "input-group__label" ) %>
+        <%= f.text_field(:email,class:  "input-group__field" )  %>
+      </div>
+      <div class="input-group input-group--horizontal">
+        <%= f.label(:name, class: "input-group__label" ) %>
+        <%= f.text_field(:name,class:  "input-group__field" )  %>
+      </div>
+      <div class="input-group input-group--horizontal">
+        <%= f.label(:role, class: "input-group__label" ) %>
+        <%= f.select(:role, %w(registered admin), {}, class: 'input-group__field')  %>
+      </div>
+      <div class="input-group input-group--horizontal">
+        <%= link_to('Cancel', account_path, class: 'prompt__cancel')  %>
+        <%= f.submit(class: "btn btn--primary prompt__confirm")  %>
+      </div>
+    <% end %>
+  </div>
+</main>
