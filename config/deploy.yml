@@ -1,8 +1,8 @@
 # Name of your application. Used to uniquely configure containers.
-service: bucket_list
+service: bucketlist
 
 # Name of the container image.
-image: rebuilt/bucket_list
+image: rebuilt/bucketlist
 
 # Deploy to these servers.
 servers:
